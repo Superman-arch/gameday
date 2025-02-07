@@ -3,61 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gameday Ski Resort App</title>
+    <title>Gameday Ski Resort</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
-    <div class="background-overlay"></div> <!-- Animated Background Effect -->
-
-    <div class="container">
-        <header>
-            <h1><i class="fas fa-skiing"></i> Gameday Ski Resort</h1>
-        </header>
-
-        <!-- Navigation Menu -->
+    <div class="background-overlay"></div>
+    <header>
+        <h1>Gameday Ski Resort</h1>
         <nav>
-            <button class="nav-btn" id="achievementsBtn"><i class="fas fa-trophy"></i> Achievements</button>
-            <button class="nav-btn" id="pointsBtn"><i class="fas fa-coins"></i> Points & Rewards</button>
-            <button class="nav-btn" id="feedbackBtn"><i class="fas fa-comment-dots"></i> Live Resort Feedback</button>
-            <button class="nav-btn" id="socialFeedBtn"><i class="fas fa-users"></i> Social Feed</button>
+            <button class="nav-btn" onclick="navigateToPage('home')">Home</button>
+            <button class="nav-btn" onclick="navigateToPage('achievements')">Achievements</button>
+            <button class="nav-btn" onclick="navigateToPage('rewards')">Rewards</button>
+            <button class="nav-btn" onclick="navigateToPage('feedback')">Live Feedback</button>
+            <button class="nav-btn" onclick="navigateToPage('social')">Social</button>
         </nav>
+    </header>
+    
+    <main>
+        <section id="home" class="page active">
+            <h2>Welcome to Gameday Ski Resort</h2>
+            <p>Track your achievements, earn rewards, and stay connected!</p>
+        </section>
+        <section id="achievements" class="page">
+            <h2>Achievements</h2>
+            <p>Complete challenges to earn points and unlock rewards!</p>
+            <button class="btn" onclick="earnPoints()">Earn Points</button>
+            <div class="progress-bar"><div id="progress" class="progress"></div></div>
+            <p>Points: <span id="pointsCount">0</span></p>
+        </section>
+        <section id="rewards" class="page">
+            <h2>Rewards</h2>
+            <p>Use your points to redeem exciting ski-related perks!</p>
+            <button class="btn" onclick="redeemPoints()">Redeem 50 Points</button>
+        </section>
+        <section id="feedback" class="page">
+            <h2>Live Resort Feedback</h2>
+            <p>Provide real-time feedback to improve your ski experience.</p>
+            <input type="text" id="feedbackInput" placeholder="Enter your feedback">
+            <button class="btn" onclick="submitFeedback()">Submit Feedback</button>
+        </section>
+        <section id="social" class="page">
+            <h2>Social Feed</h2>
+            <p>Stay connected with fellow skiers and check the leaderboard!</p>
+        </section>
+    </main>
 
-        <main>
-            <div id="achievementsPage" class="page" aria-label="Achievements Section">
-                <h2>🏅 Achievements</h2>
-                <p>Complete challenges to earn points and climb the leaderboard!</p>
-                <button class="btn-glass" onclick="earnPoints()">🏔 Complete Challenge</button>
-            </div>
-
-            <div id="pointsRewardsPage" class="page" aria-label="Points and Rewards Section">
-                <h2>💰 Points & Rewards</h2>
-                <p>Points: <span id="pointsCount">0</span></p>
-                <div class="progress-bar">
-                    <div class="progress" id="progressBar"></div>
-                </div>
-                <button class="btn-glass" onclick="redeemPoints()">🎁 Redeem Points</button>
-            </div>
-
-            <div id="feedbackPage" class="page" aria-label="Live Resort Feedback Section">
-                <h2>📝 Live Resort Feedback</h2>
-                <textarea id="feedbackInput" placeholder="Share trail conditions, lift wait times, or experiences..."></textarea>
-                <button class="btn-glass" onclick="submitFeedback()">📤 Submit Feedback</button>
-            </div>
-
-            <div id="socialFeedPage" class="page" aria-label="Social Feed Section">
-                <h2>📱 Social Feed</h2>
-                <p>Engage with fellow skiers and track leaderboard rankings.</p>
-                <ul id="leaderboard">
-                    <li>🏆 Player 1: 100 points</li>
-                    <li>⛷ Player 2: 85 points</li>
-                </ul>
-            </div>
-        </main>
-    </div>
-
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

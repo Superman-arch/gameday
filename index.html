@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gameday Ski Resort</title>
+    <title>Gameday Ski Resort - Powered by Vail Resorts</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="background-overlay"></div>
     <header>
-        <h1>Gameday Ski Resort</h1>
+        <div class="logo-container">
+            <img src="vail_logo.png" alt="Vail Resorts Logo" class="logo">
+            <h1>Gameday Ski Resort</h1>
+        </div>
         <nav>
             <button class="nav-btn" onclick="navigateToPage('home')">Home</button>
             <button class="nav-btn" onclick="navigateToPage('achievements')">Achievements</button>
@@ -22,7 +25,7 @@
     <main>
         <section id="home" class="page active">
             <h2>Welcome to Gameday Ski Resort</h2>
-            <p>Track your achievements, earn rewards, and stay connected!</p>
+            <p>Experience the ultimate ski adventure, powered by Vail Resorts.</p>
         </section>
         <section id="achievements" class="page">
             <h2>Achievements</h2>
@@ -32,19 +35,19 @@
             <p>Points: <span id="pointsCount">0</span></p>
         </section>
         <section id="rewards" class="page">
-            <h2>Rewards</h2>
-            <p>Use your points to redeem exciting ski-related perks!</p>
+            <h2>Exclusive Rewards</h2>
+            <p>Use your points to redeem Vail Resorts' premium ski perks!</p>
             <button class="btn" onclick="redeemPoints()">Redeem 50 Points</button>
         </section>
         <section id="feedback" class="page">
             <h2>Live Resort Feedback</h2>
-            <p>Provide real-time feedback to improve your ski experience.</p>
+            <p>Provide real-time feedback and help improve your ski experience.</p>
             <input type="text" id="feedbackInput" placeholder="Enter your feedback">
             <button class="btn" onclick="submitFeedback()">Submit Feedback</button>
         </section>
         <section id="social" class="page">
-            <h2>Social Feed</h2>
-            <p>Stay connected with fellow skiers and check the leaderboard!</p>
+            <h2>Community & Social Feed</h2>
+            <p>Stay connected with fellow skiers, share experiences, and check leaderboards!</p>
         </section>
     </main>
 
@@ -103,8 +106,20 @@
             z-index: -1;
         }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 80px;
+            height: auto;
+        }
+
         .navbar {
-            background: rgba(255, 111, 0, 0.8);
+            background: rgba(255, 111, 0, 0.9);
             padding: 20px;
             text-align: center;
         }
@@ -124,7 +139,7 @@
 
         .nav-btn:hover {
             transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(255, 111, 0, 0.8);
+            box-shadow: 0 0 20px rgba(255, 111, 0, 0.9);
         }
 
         .page {

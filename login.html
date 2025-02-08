@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Login to access My Epic App features.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - My Epic App</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Login</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Info</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <section>
+      <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <button type="submit">Login</button>
+        <p id="errorMsg" class="error"></p>
+      </form>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 My Epic App</p>
+  </footer>
+  
+  <script src="js/auth.js"></script>
+</body>
+</html>

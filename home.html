@@ -68,16 +68,6 @@
         <button class="pass-btn">Resort Access</button>
       </div>
     </section>
-    
-    <!-- Rewards Section -->
-    <section class="rewards-section">
-      <h2>Redeem Rewards</h2>
-      <p>Use your points for lodging discounts and next season pass discounts.</p>
-      <div class="rewards-options">
-        <button id="redeemLodging">Redeem Lodging Discount (500 pts)</button>
-        <button id="redeemPass">Redeem Next Season Pass Discount (750 pts)</button>
-      </div>
-    </section>
   </main>
   
   <!-- Fixed Bottom Navigation -->
@@ -86,56 +76,10 @@
       <ul>
         <li><a href="home.html" class="nav-link active">Home</a></li>
         <li><a href="resort.html" class="nav-link">Resort</a></li>
+        <li><a href="rewards.html" class="nav-link">Rewards</a></li>
         <li><a href="more.html" class="nav-link">More</a></li>
       </ul>
     </nav>
   </footer>
-  
-  <script>
-    // Points management: Earn points.
-    const pointsElem = document.getElementById('points');
-    // If not found, set initial points manually.
-    let currentPoints = 1000;
-    
-    // Function to update displayed points.
-    function updatePoints(newPoints) {
-      currentPoints = newPoints;
-      // Update the pass section text if an element exists.
-      const passPointsElem = document.querySelector('.pass-section .pass-status');
-      if (passPointsElem) {
-        passPointsElem.textContent = `Your pass will scan from your pocket. (Points: ${currentPoints})`;
-      }
-      // Also, if there's a separate points display:
-      const pointsDisplay = document.getElementById('points');
-      if (pointsDisplay) {
-        pointsDisplay.textContent = currentPoints;
-      }
-    }
-    
-    document.querySelector('.start-tracking-btn').addEventListener('click', function(){
-      updatePoints(currentPoints + 100);
-    });
-    
-    // Reward Redemption Functions
-    function redeemReward(cost, rewardName) {
-      if (currentPoints >= cost) {
-        updatePoints(currentPoints - cost);
-        alert(`You have successfully redeemed a ${rewardName}!`);
-      } else {
-        alert(`Sorry, you need ${cost - currentPoints} more points to redeem a ${rewardName}.`);
-      }
-    }
-    
-    document.getElementById('redeemLodging').addEventListener('click', function(){
-      redeemReward(500, "Lodging Discount");
-    });
-    
-    document.getElementById('redeemPass').addEventListener('click', function(){
-      redeemReward(750, "Next Season Pass Discount");
-    });
-    
-    // Initialize the pass status with current points.
-    updatePoints(currentPoints);
-  </script>
 </body>
 </html>

@@ -1,44 +1,61 @@
+<!-- File: login.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Login to access My Epic App dashboard.">
+  <meta name="description" content="Login to unlock the mountain with My Epic App.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - My Epic App</title>
   <link rel="stylesheet" href="css/style.css">
-  <!-- Google Fonts -->
+  <!-- Google Fonts for professional look -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
-  <header class="site-header">
-    <div class="container">
-      <h1 class="site-title">My Epic App</h1>
-      <nav class="site-nav">
-        <ul>
-          <li><a href="index.html">Info</a></li>
-          <li><a href="login.html" class="active">Login</a></li>
-        </ul>
-      </nav>
-    </div>
+<body class="login-body">
+  <!-- Full-screen background image of a snowy mountain -->
+  <div class="login-bg">
+    <!-- Optional: Overlay gradient if desired -->
+    <div class="login-overlay"></div>
+  </div>
+  
+  <!-- Header Section with Epic Logo and Main Title -->
+  <header class="login-header">
+    <div class="epic-logo">EPIC</div>
+    <h1 class="login-title">Unlock the mountain.</h1>
   </header>
   
+  <!-- Login Form Container (white box) -->
   <main class="login-main">
-    <div class="login-container">
-      <h2>Login</h2>
+    <div class="login-form-container">
       <form id="loginForm">
-        <input type="text" id="username" placeholder="Username" required>
-        <input type="password" id="password" placeholder="Password" required>
-        <button type="submit">Login</button>
+        <!-- Email Input (prefilled) -->
+        <label for="username">Email</label>
+        <input type="email" id="username" value="abonde421@gmail.com" required>
+        
+        <!-- Password Input with placeholder and a (placeholder) Face ID icon -->
+        <label for="password">Password</label>
+        <div class="password-container">
+          <input type="password" id="password" placeholder="Password" required>
+          <span class="faceid-icon" title="Face ID"><!-- You can insert an SVG icon here --><img src="https://via.placeholder.com/20" alt="Face ID"></span>
+        </div>
+        
+        <!-- Forgot Username & Password Links -->
+        <div class="forgot-links">
+          <a href="#" class="forgot-link">Forgot Username?</a>
+          <a href="#" class="forgot-link">Forgot Password?</a>
+        </div>
+        
+        <!-- SIGN IN Button (enabled when valid credentials are entered) -->
+        <button type="submit" id="signInBtn">SIGN IN</button>
         <p id="errorMsg" class="error-msg"></p>
       </form>
+      
+      <!-- Sign Up & Guest Login Options -->
+      <div class="extra-options">
+        <p>Don’t have an account? <a href="#" class="extra-link">Sign up</a></p>
+        <p><a href="home.html" class="extra-link">Continue as a guest</a></p>
+      </div>
     </div>
   </main>
-  
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 My Epic App. All Rights Reserved.</p>
-    </div>
-  </footer>
   
   <script src="js/auth.js"></script>
 </body>

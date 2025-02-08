@@ -1,4 +1,3 @@
-<!-- File: home.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +18,7 @@
     <div class="profile-pic">
       <img src="https://via.placeholder.com/50" alt="Profile Picture">
     </div>
-    <h1 class="greeting">Welcome, Amadeo</h1>
+    <h1 class="greeting">Welcome, Deca</h1>
   </header>
   
   <!-- Main Content -->
@@ -56,7 +55,7 @@
           <h2 class="pass-title">EPIC LOCAL PASS</h2>
           <div class="pass-profile">
             <img src="https://via.placeholder.com/40" alt="Profile">
-            <p class="pass-username">Amadeo Bonde</p>
+            <p class="pass-username">Deca</p>
           </div>
         </div>
         <div class="pass-right">
@@ -67,6 +66,16 @@
       <div class="pass-buttons">
         <button class="pass-btn">See Pass</button>
         <button class="pass-btn">Resort Access</button>
+      </div>
+    </section>
+    
+    <!-- Rewards Section -->
+    <section class="rewards-section">
+      <h2>Redeem Rewards</h2>
+      <p>Use your points for lodging discounts and next season pass discounts.</p>
+      <div class="rewards-options">
+        <button id="redeemLodging">Redeem Lodging Discount (500 pts)</button>
+        <button id="redeemPass">Redeem Next Season Pass Discount (750 pts)</button>
       </div>
     </section>
   </main>
@@ -81,5 +90,52 @@
       </ul>
     </nav>
   </footer>
+  
+  <script>
+    // Points management: Earn points.
+    const pointsElem = document.getElementById('points');
+    // If not found, set initial points manually.
+    let currentPoints = 1000;
+    
+    // Function to update displayed points.
+    function updatePoints(newPoints) {
+      currentPoints = newPoints;
+      // Update the pass section text if an element exists.
+      const passPointsElem = document.querySelector('.pass-section .pass-status');
+      if (passPointsElem) {
+        passPointsElem.textContent = `Your pass will scan from your pocket. (Points: ${currentPoints})`;
+      }
+      // Also, if there's a separate points display:
+      const pointsDisplay = document.getElementById('points');
+      if (pointsDisplay) {
+        pointsDisplay.textContent = currentPoints;
+      }
+    }
+    
+    document.querySelector('.start-tracking-btn').addEventListener('click', function(){
+      updatePoints(currentPoints + 100);
+    });
+    
+    // Reward Redemption Functions
+    function redeemReward(cost, rewardName) {
+      if (currentPoints >= cost) {
+        updatePoints(currentPoints - cost);
+        alert(`You have successfully redeemed a ${rewardName}!`);
+      } else {
+        alert(`Sorry, you need ${cost - currentPoints} more points to redeem a ${rewardName}.`);
+      }
+    }
+    
+    document.getElementById('redeemLodging').addEventListener('click', function(){
+      redeemReward(500, "Lodging Discount");
+    });
+    
+    document.getElementById('redeemPass').addEventListener('click', function(){
+      redeemReward(750, "Next Season Pass Discount");
+    });
+    
+    // Initialize the pass status with current points.
+    updatePoints(currentPoints);
+  </script>
 </body>
 </html>

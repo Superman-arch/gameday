@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
       console.log("Login attempt:", email, password);
       
       // Check credentials: email must equal "abonde421@gmail.com" and password "deca"
-      if (email === "deca" && password === "deca") {
+      if (email === "deca@gmail.com" && password === "deca") {
         // On successful login, redirect to home.html (dashboard)
         window.location.href = "home.html";
       } else {

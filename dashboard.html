@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="Dashboard for My Epic App featuring your account details, rewards, and social links.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - My Epic App</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Dashboard</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Info</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <!-- In a full app, logout would clear authentication; here we simply link to login.html -->
+        <li><a href="login.html">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    <section>
+      <h2>Welcome, User!</h2>
+      <p>This is your dashboard. Here you can view your rewards, points, and social activity.</p>
+      <p>Points: <span id="points">1000</span></p>
+      <button id="earnPoints">Earn 100 Points</button>
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 My Epic App</p>
+  </footer>
+  
+  <script>
+    // Simple simulation for earning points.
+    document.getElementById('earnPoints').addEventListener('click', function() {
+      var pointsElem = document.getElementById('points');
+      var points = parseInt(pointsElem.textContent);
+      points += 100;
+      pointsElem.textContent = points;
+    });
+  </script>
+</body>
+</html>

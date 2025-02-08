@@ -1,19 +1,21 @@
-// js/auth.js
+// File: js/auth.js
 document.addEventListener("DOMContentLoaded", function() {
   const loginForm = document.getElementById("loginForm");
   if (loginForm) {
     loginForm.addEventListener("submit", function(e) {
-      e.preventDefault(); // Prevent default submission
+      e.preventDefault();
       
-      const username = document.getElementById("username").value.trim().toLowerCase();
+      // Get the entered values
+      const email = document.getElementById("username").value.trim().toLowerCase();
       const password = document.getElementById("password").value;
       const errorMsg = document.getElementById("errorMsg");
       
-      console.log("Login attempt:", username, password);
+      console.log("Login attempt:", email, password);
       
-      if (username === "deca" && password === "deca") {
-        // On successful login, redirect to dashboard.html
-        window.location.href = "dashboard.html";
+      // Check credentials: email must equal "abonde421@gmail.com" and password "deca"
+      if (email === "deca" && password === "deca") {
+        // Redirect to Home Screen
+        window.location.href = "home.html";
       } else {
         errorMsg.textContent = "Invalid username or password";
         console.log("Invalid credentials");

@@ -4,18 +4,13 @@ document.addEventListener("DOMContentLoaded", function() {
   if (loginForm) {
     loginForm.addEventListener("submit", function(e) {
       e.preventDefault();
-      
-      // Get the entered values
       const email = document.getElementById("username").value.trim().toLowerCase();
       const password = document.getElementById("password").value;
       const errorMsg = document.getElementById("errorMsg");
-      
       console.log("Login attempt:", email, password);
-      
-      // Check credentials: email must equal "abonde421@gmail.com" and password "deca"
       if (email === "deca" && password === "deca") {
-        // Redirect to Home Screen
-        window.location.href = "home.html";
+        // Redirect to the Home Screen (index.html)
+        window.location.href = "index.html";
       } else {
         errorMsg.textContent = "Invalid username or password";
         console.log("Invalid credentials");

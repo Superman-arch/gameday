@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Dashboard for My Epic App featuring your account details, rewards, and social links.">
+  <meta name="description" content="Dashboard for My Epic App featuring your account details, rewards, and resorts.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard - My Epic App</title>
   <link rel="stylesheet" href="css/style.css">
@@ -25,12 +25,65 @@
   
   <main class="dashboard-main">
     <div class="container">
-      <h2>Welcome, User!</h2>
-      <p>This is your dashboard. Here you can view your rewards, points, and social activity.</p>
-      <div class="account-info">
+      <!-- Welcome & Points Section -->
+      <section class="dashboard-welcome">
+        <h2>Welcome, User!</h2>
+        <p>Your rewards and resort updates are here.</p>
+      </section>
+      <section class="account-section">
+        <h3>Your Points</h3>
         <p>Points: <span id="points">1000</span></p>
         <button id="earnPoints">Earn 100 Points</button>
-      </div>
+      </section>
+      
+      <!-- Featured Resorts Section -->
+      <section class="resorts-section">
+        <h3>Featured Resorts</h3>
+        <div class="resorts-grid">
+          <div class="resort-card">
+            <img src="https://via.placeholder.com/400x250/FF7F00/ffffff?text=Resort+1" alt="Resort 1">
+            <div class="card-info">
+              <h4>Resort One</h4>
+              <p>Experience world-class slopes and luxury amenities.</p>
+              <button>View Details</button>
+            </div>
+          </div>
+          <div class="resort-card">
+            <img src="https://via.placeholder.com/400x250/FF7F00/ffffff?text=Resort+2" alt="Resort 2">
+            <div class="card-info">
+              <h4>Resort Two</h4>
+              <p>Adventure awaits with diverse terrains and scenic views.</p>
+              <button>View Details</button>
+            </div>
+          </div>
+          <div class="resort-card">
+            <img src="https://via.placeholder.com/400x250/FF7F00/ffffff?text=Resort+3" alt="Resort 3">
+            <div class="card-info">
+              <h4>Resort Three</h4>
+              <p>Enjoy exceptional dining and world-class skiing.</p>
+              <button>View Details</button>
+            </div>
+          </div>
+          <div class="resort-card">
+            <img src="https://via.placeholder.com/400x250/FF7F00/ffffff?text=Resort+4" alt="Resort 4">
+            <div class="card-info">
+              <h4>Resort Four</h4>
+              <p>Unforgettable experiences in a stunning mountain setting.</p>
+              <button>View Details</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Redeem Rewards Section -->
+      <section class="redeem-section">
+        <h3>Redeem Rewards</h3>
+        <p>Use your points for lodging discounts and next season pass discounts.</p>
+        <div class="redeem-buttons">
+          <button id="redeemLodging">Redeem Lodging Discount (500 pts)</button>
+          <button id="redeemPass">Redeem Next Season Pass Discount (750 pts)</button>
+        </div>
+      </section>
     </div>
   </main>
   
@@ -41,11 +94,31 @@
   </footer>
   
   <script>
-    // Simple simulation to add points.
+    // Points management
+    const pointsElem = document.getElementById('points');
+
     document.getElementById('earnPoints').addEventListener('click', function(){
-      var pointsElem = document.getElementById('points');
-      var currentPoints = parseInt(pointsElem.innerText);
+      let currentPoints = parseInt(pointsElem.innerText);
       pointsElem.innerText = currentPoints + 100;
+    });
+
+    // Reward Redemption Functions
+    function redeemReward(cost, rewardName) {
+      let currentPoints = parseInt(pointsElem.innerText);
+      if (currentPoints >= cost) {
+        pointsElem.innerText = currentPoints - cost;
+        alert(`You have successfully redeemed a ${rewardName}!`);
+      } else {
+        alert(`Sorry, you need ${cost - currentPoints} more points to redeem a ${rewardName}.`);
+      }
+    }
+
+    document.getElementById('redeemLodging').addEventListener('click', function(){
+      redeemReward(500, "Lodging Discount");
+    });
+
+    document.getElementById('redeemPass').addEventListener('click', function(){
+      redeemReward(750, "Next Season Pass Discount");
     });
   </script>
 </body>

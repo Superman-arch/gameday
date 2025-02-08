@@ -1,4 +1,4 @@
-// Enhance navigation behavior (e.g., mobile menu toggle)
+// Mobile menu toggle functionality
 document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav-links');

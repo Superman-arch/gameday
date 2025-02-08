@@ -2,166 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="description" content="A prototype for the Vail Resorts My Epic App featuring a strategic partnership with Gameday, showcasing gamified experiences for season pass holders." />
+  <meta name="description" content="Welcome to My Epic App – your gateway to an enhanced season pass experience." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vail Resorts x Gameday Partnership</title>
-  <!-- Google Fonts for professional typography -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-  <!-- Favicon (replace with your favicon file) -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="style.css" />
+  <title>My Epic App - Home</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- Login Container -->
-  <div id="login-container">
-    <form id="login-form">
-      <h2>Login</h2>
-      <input type="text" id="username" placeholder="Username" required>
-      <input type="password" id="password" placeholder="Password" required>
-      <button type="submit">Login</button>
-      <p id="error-msg"></p>
-    </form>
-  </div>
-
   <!-- Header and Navigation -->
   <header>
-    <nav class="navbar" role="navigation">
+    <nav class="navbar">
       <div class="logo">My Epic App</div>
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#passes">Passes</a></li>
-        <li><a href="#resorts">Resorts</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#partnership">Partnership</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="login.html">Login</a></li>
       </ul>
-      <div class="menu-toggle" aria-label="Toggle Navigation Menu">
-         <span></span>
-         <span></span>
-         <span></span>
-      </div>
     </nav>
-    <div class="hero" id="home">
+    <div class="hero">
       <div class="hero-content">
-        <h1>Welcome to the Vail Resorts x Gameday Experience</h1>
-        <p>Revolutionizing season passes with gamification and dynamic engagement.</p>
+        <h1>Welcome to My Epic App</h1>
+        <p>Your gateway to digital passes, rewards, and a vibrant community.</p>
       </div>
     </div>
   </header>
 
   <!-- Main Content -->
   <main>
-    <!-- Digital Passes Section -->
-    <section id="passes" class="section">
-      <h2>Digital Passes</h2>
-      <div class="pass-cards">
-        <!-- Replace these placeholder URLs with your real, optimized image assets -->
-        <div class="pass-card">
-          <img src="https://via.placeholder.com/300x180/FF7F00/ffffff?text=Epic+Pass" alt="Epic Pass" loading="lazy" />
-          <div class="card-content">
-            <h3>Epic Pass</h3>
-            <p>Access premier ski resorts worldwide with exclusive benefits.</p>
-            <button>Learn More</button>
-          </div>
-        </div>
-        <div class="pass-card">
-          <img src="https://via.placeholder.com/300x180/FF7F00/ffffff?text=Epic+Local+Pass" alt="Epic Local Pass" loading="lazy" />
-          <div class="card-content">
-            <h3>Epic Local Pass</h3>
-            <p>Enjoy local benefits and ski at select resorts near you.</p>
-            <button>Learn More</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Resorts Section -->
-    <section id="resorts" class="section">
-      <h2>Our Resorts</h2>
-      <div class="resort-list">
-        <div class="resort-item">
-          <img src="https://via.placeholder.com/400x250/FF7F00/ffffff?text=Resort+1" alt="Resort One" loading="lazy" />
-          <h3>Resort One</h3>
-          <p>Experience world-class slopes and luxury accommodations.</p>
-        </div>
-        <div class="resort-item">
-          <img src="https://via.placeholder.com/400x250/FF7F00/ffffff?text=Resort+2" alt="Resort Two" loading="lazy" />
-          <h3>Resort Two</h3>
-          <p>Adventure awaits with diverse terrains and breathtaking views.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Key Features Section -->
-    <section id="features" class="section">
-      <h2>Key Features</h2>
-      <ul class="features-list">
-        <li>
-          <h3>Easy Pass Management</h3>
-          <p>Seamlessly manage your digital passes and gain instant access.</p>
-        </li>
-        <li>
-          <h3>Resort Navigation</h3>
-          <p>Find the best routes, lifts, and amenities effortlessly.</p>
-        </li>
-        <li>
-          <h3>Real-Time Updates</h3>
-          <p>Stay informed with live notifications on weather, lift status, and more.</p>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Partnership with Gameday Section -->
-    <section id="partnership" class="section">
-      <h2>Partnership with Gameday</h2>
-      <div class="partnership-content">
-        <h3>Industry Challenges</h3>
-        <p>
-          The evolution of season passes has left a gap in the personalized customer experience.
-          Crowding, delayed pass sales, and a declining youth demographic have all contributed
-          to challenges in guest satisfaction and revenue predictability.
-        </p>
-        <h3>Gameday’s Solution</h3>
-        <p>
-          Gameday introduces a cutting-edge, gamified system that transforms the ski resort
-          experience. By integrating an achievement system, point-based rewards, and live feedback,
-          we incentivize exploration and early pass purchases—addressing crowd management, improving
-          guest satisfaction, and stabilizing cash flow.
-        </p>
-        <h3>Unique Value Proposition</h3>
-        <ul>
-          <li>Proven success in gamified recreational experiences</li>
-          <li>Expansion opportunity to create lifelong customers</li>
-          <li>Ease of integration with existing resort systems</li>
-        </ul>
-        <h3>Target Customer Segment</h3>
-        <p>
-          Our primary market focuses on the 13-24 age group—a demographic increasingly receptive to
-          technology and gamified experiences. Through this partnership, we provide tailored solutions
-          for leading corporations such as Vail Resorts, Alterra Mountain Company, Entabeni Systems, and
-          Mountain Collective.
-        </p>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section">
+    <section class="section">
       <h2>About the App</h2>
       <p>
-        My Epic App is designed to revolutionize your mountain experience. With an intuitive interface
-        and cutting-edge features, you can manage your ski passes, plan your adventures, and stay
-        updated on resort conditions—all in one place. Our new partnership with Gameday adds a
-        dynamic, gamified layer that enhances engagement, drives early pass purchases, and secures
-        guest loyalty across the network.
+        My Epic App is designed to revolutionize your mountain experience. Discover how you can
+        manage digital passes, earn points for activities, redeem rewards, and connect with others.
       </p>
+    </section>
+    <section class="section">
+      <h2>Features</h2>
+      <ul>
+        <li>Digital Pass Management</li>
+        <li>Earn Points for Activities</li>
+        <li>Redeem Rewards</li>
+        <li>Social Community</li>
+      </ul>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Vail Resorts x Gameday Partnership</p>
+    <p>&copy; 2025 My Epic App</p>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>

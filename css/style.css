@@ -1,7 +1,7 @@
 /* ---------------------------------------------------------------------------
    Global Styles & CSS Variables
 --------------------------------------------------------------------------- */
-/* Uncomment the following to test that your CSS is loading */
+/* Uncomment the following rule to test if your stylesheet is loading */
 /*
 body {
   background-color: #f0f0f0 !important;
@@ -51,6 +51,13 @@ img {
   display: block;
 }
 
+/* Common container class */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
 /* Ensure main content is not hidden behind the fixed navigation */
 main {
   padding-bottom: 70px;
@@ -60,7 +67,7 @@ main {
    ----- Login Screen (index.html) Styles -----
 --------------------------------------------------------------------------- */
 
-/* Full‑screen background image with bottom overlay */
+/* Full‑screen background with overlay */
 .background-container {
   position: fixed;
   top: 0;
@@ -82,7 +89,7 @@ main {
   z-index: -1;
 }
 
-/* Header: Epic logo and title */
+/* Header with Epic logo and title */
 header .header-inner {
   text-align: center;
   padding-top: 2rem;
@@ -339,58 +346,194 @@ header {
 }
 
 /* ---------------------------------------------------------------------------
-   ----- Rewards Screen (rewards.html) Styles -----
+   ----- Revamped Rewards Screen (rewards.html) Styles -----
 --------------------------------------------------------------------------- */
-.points-display {
+
+/* Header for Rewards */
+header .header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--gray);
+  background-color: var(--white);
+}
+
+header .header-content h1 {
+  font-size: 1.75rem;
+  /* Inline color from HTML (var(--primary-orange)) is used, but you can override it here if needed */
+}
+
+header .profile-info {
+  display: flex;
+  align-items: center;
+}
+
+/* Hero Banner */
+.hero {
+  position: relative;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--white);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 2rem;
+  padding: 1rem;
+}
+
+.hero-overlay h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-overlay p {
+  font-size: 1rem;
+  max-width: 600px;
+}
+
+/* Points & Achievements Section */
+.points-achievements {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem 0;
+}
+
+.points-display {
+  flex: 1;
+  min-width: 280px;
+  text-align: center;
+  background-color: var(--white);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .points-display h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
-#earnPointsBtn {
+.points-amount {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.action-btn {
   padding: 0.75rem 1.5rem;
   background-color: var(--primary-orange);
   color: var(--white);
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 1rem;
   transition: background-color 0.3s ease;
 }
 
-#earnPointsBtn:hover {
+.action-btn:hover {
   background-color: var(--primary-orange-hover);
 }
 
-.redeem-rewards {
-  text-align: center;
+.achievements {
+  flex: 1;
+  min-width: 280px;
+  background-color: var(--white);
   padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.redeem-rewards h2 {
-  margin-bottom: 1rem;
+.achievements h2 {
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.achievements ul {
+  padding: 0;
+}
+
+.achievements li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.achievements li img {
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
+}
+
+/* Rewards Redemption Section */
+.rewards-redemption {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.rewards-redemption h2 {
+  margin-bottom: 0.5rem;
+}
+
+.rewards-redemption p {
+  margin-bottom: 1.5rem;
+}
+
+.rewards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
 }
 
 .redeem-btn {
-  display: block;
-  width: 90%;
-  max-width: 300px;
-  margin: 0.5rem auto;
   padding: 0.75rem;
-  background-color: var(--primary-orange);
-  color: var(--white);
-  border: none;
+  background-color: var(--white);
+  color: var(--dark-blue);
+  border: 2px solid var(--primary-orange);
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .redeem-btn:hover {
-  background-color: var(--primary-orange-hover);
+  background-color: var(--primary-orange);
+  color: var(--white);
+}
+
+/* Value Proposition Section */
+.value-proposition {
+  padding: 2rem 0;
+}
+
+.value-proposition h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.value-proposition article {
+  background-color: var(--white);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.value-proposition article p {
+  margin-bottom: 1rem;
 }
 
 /* ---------------------------------------------------------------------------
@@ -414,7 +557,7 @@ header h1 {
   color: var(--dark-blue);
 }
 
-/* Resort search bar */
+/* Resort Search Bar */
 .resort-search {
   display: flex;
   align-items: center;
@@ -436,7 +579,7 @@ header h1 {
   margin-left: 0.5rem;
 }
 
-/* Resort cards grid */
+/* Resort Cards Grid */
 .resort-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -554,11 +697,17 @@ header .header-right {
   color: var(--primary-orange);
 }
 
+/* Active link style for bottom navigation */
+.bottom-nav li a.active {
+  color: var(--primary-orange);
+  font-weight: bold;
+}
+
 /* ---------------------------------------------------------------------------
    ----- Responsive Styles -----
 --------------------------------------------------------------------------- */
 @media (max-width: 768px) {
-  /* Center cards and adjust layout for smaller screens */
+  /* Adjust card margins and navigation layout */
   .login-card,
   .pass-card,
   .redeem-btn,

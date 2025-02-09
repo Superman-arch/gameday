@@ -1,12 +1,32 @@
 // js/auth.js
 
 (function() {
-  // Global variable for rewards points (starting at 1000)
-  let currentPoints = 1000;
+  // ---------------------------
+  // Points Persistence Helpers
+  // ---------------------------
+  /**
+   * Retrieves the current points from localStorage.
+   * Defaults to 1000 if no value is stored.
+   */
+  function getCurrentPoints() {
+    return parseInt(localStorage.getItem('currentPoints'), 10) || 1000;
+  }
+
+  /**
+   * Saves the current points to localStorage.
+   * @param {number} points - The points to store.
+   */
+  function setCurrentPoints(points) {
+    localStorage.setItem('currentPoints', points);
+  }
+
+  // Initialize points from storage (or default to 1000)
+  let currentPoints = getCurrentPoints();
 
   /* -------------------------------------
      Rewards Functions
   ------------------------------------- */
+
   /**
    * Updates the points display (if present) with the current points.
    */
@@ -23,7 +43,9 @@
    */
   function earnPoints() {
     currentPoints += 100;
+    setCurrentPoints(currentPoints);
     updatePointsDisplay();
+    // For a production app, consider using an in-page notification instead of alert.
     alert('You earned 100 points!');
     console.log('Points increased. Current points:', currentPoints);
   }
@@ -39,8 +61,14 @@
     const cost = parseInt(button.getAttribute('data-cost'), 10);
     const rewardName = button.getAttribute('data-reward');
 
+    if (isNaN(cost)) {
+      console.error('Invalid cost for reward:', rewardName);
+      return;
+    }
+
     if (currentPoints >= cost) {
       currentPoints -= cost;
+      setCurrentPoints(currentPoints);
       updatePointsDisplay();
       alert('Congratulations! You have redeemed: ' + rewardName);
       console.log(`Redeemed "${rewardName}". Points remaining:`, currentPoints);
@@ -53,6 +81,7 @@
   /* -------------------------------------
      Login Authentication Functions
   ------------------------------------- */
+
   /**
    * Validates login credentials when the form is submitted.
    * Redirects to home.html if credentials are correct.
@@ -69,7 +98,7 @@
     const email = emailInput.value.trim().toLowerCase();
     const password = passwordInput.value;
 
-    // Check against deca-oriented credentials
+    // Check against demo credentials (for production, integrate with a secure auth system)
     if (email === 'deca@gmail.com' && password === 'deca') {
       // Successful login; redirect to Home (Dashboard) screen
       window.location.href = 'home.html';
@@ -90,13 +119,15 @@
     const signInBtn = document.getElementById('signInBtn');
 
     if (emailInput && passwordInput && signInBtn) {
-      signInBtn.disabled = (emailInput.value.trim() === '' || passwordInput.value.trim() === '');
+      signInBtn.disabled =
+        emailInput.value.trim() === '' || passwordInput.value.trim() === '';
     }
   }
 
   /* -------------------------------------
      Additional Interaction Functions
   ------------------------------------- */
+
   /**
    * Tracks a day when the "Track Your Day" button is clicked.
    */
@@ -108,6 +139,7 @@
   /* -------------------------------------
      Event Listener Attachments
   ------------------------------------- */
+
   // Login Form (for index.html)
   const loginForm = document.getElementById('loginForm');
   if (loginForm) {
@@ -144,4 +176,5 @@
   }
 
   // Additional event listeners can be added here for other pages or interactions
+
 })();

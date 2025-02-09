@@ -5,17 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Epic App – Rewards</title>
   <link rel="stylesheet" href="css/style.css">
-  <!--
-    Your style.css should define styles such as:
-      :root {
-        --primary-orange: #FF7F00;
-        --dark-blue: #003366;
-        --light-blue: #87CEFA;
-        --white: #fff;
-        --gray: #ccc;
-      }
-    and use these variables for headers, buttons, and backgrounds.
-  -->
 </head>
 <body>
   <!-- Header with personalized greeting -->
@@ -29,7 +18,7 @@
     </div>
   </header>
 
-  <!-- Hero Section: A visually appealing banner using a digital pass image as a background -->
+  <!-- Hero Section using the digital pass image -->
   <section class="hero" style="background-image: url('images/pass.jpg');">
     <div class="hero-overlay">
       <h2>Your Season Pass, Reinvented</h2>
@@ -50,10 +39,16 @@
       <div class="achievements">
         <h2>Your Achievements</h2>
         <ul>
-          <li><img src="images/ai.png" alt="Achievement Icon"> First Run Completed</li>
-          <li><img src="images/ai.png" alt="Achievement Icon"> 5 Mountain Feedbacks</li>
-          <li><img src="images/ai.png" alt="Achievement Icon"> Social Connector Badge</li>
-          <!-- Add more achievements as needed -->
+          <li>
+            <img src="images/ai.png" alt="Achievement Icon"> First Run Completed
+          </li>
+          <li>
+            <img src="images/ai.png" alt="Achievement Icon"> 5 Mountain Feedbacks
+          </li>
+          <li>
+            <img src="images/ai.png" alt="Achievement Icon"> Social Connector Badge
+          </li>
+          <!-- Additional achievements can be added here -->
         </ul>
       </div>
     </section>
@@ -69,11 +64,11 @@
         <button class="redeem-btn" data-cost="750" data-reward="Next Season Pass Discount" style="border-color: var(--primary-orange);">
           Redeem Next Season Pass Discount (750 pts)
         </button>
-        <!-- Additional reward buttons can be added here -->
+        <!-- Additional reward options can be added here -->
       </div>
     </section>
 
-    <!-- Value Proposition & Industry Impact -->
+    <!-- Value Proposition Section -->
     <section class="value-proposition container">
       <h2>Why Gameday?</h2>
       <article>
@@ -84,14 +79,14 @@
         </p>
         <p>
           With proven success in recreational gaming (think Top Golf and Fantasy Sports) and an emphasis on building lifelong
-          customer relationships, Gameday integrates cutting-edge technology with the unique demands of season pass holders.
-          Enjoy exclusive perks, stay ahead with live data updates, and be part of a community that shapes the future of the industry.
+          customer relationships, Gameday integrates cutting‑edge technology with the unique demands of season pass holders.
+          Enjoy exclusive perks, live data updates, and be part of a community that shapes the future of the industry.
         </p>
       </article>
     </section>
   </main>
 
-  <!-- Bottom Navigation -->
+  <!-- Bottom Navigation Bar -->
   <nav class="bottom-nav">
     <ul>
       <li><a href="home.html">Home</a></li>
@@ -101,8 +96,6 @@
     </ul>
   </nav>
 
-  <!-- JavaScript for handling points and rewards functionality -->
   <script src="js/auth.js"></script>
-  <!-- You can add additional scripts here to update points dynamically and manage reward redemption -->
 </body>
 </html>

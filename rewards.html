@@ -2,87 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Rewards page for My Epic App.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rewards - My Epic App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Epic App – Rewards</title>
   <link rel="stylesheet" href="css/style.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="rewards-page">
-  <header class="home-header">
-    <h1 class="greeting">Rewards</h1>
+<body>
+  <header>
+    <h1>Rewards</h1>
   </header>
-  
-  <main class="rewards-main container">
-    <!-- Points Display -->
-    <section class="points-section">
-      <h2>Your Points</h2>
-      <p id="pointsDisplay">1000</p>
+
+  <main>
+    <!-- Points Display Section -->
+    <section class="points-display">
+      <h2>Current Points: <span id="pointsValue">1000</span></h2>
       <button id="earnPointsBtn">Earn 100 Points</button>
     </section>
-    
-    <!-- Rewards Redemption Section -->
-    <section class="redeem-section">
+
+    <!-- Redemption Options -->
+    <section class="redeem-rewards">
       <h2>Redeem Rewards</h2>
-      <p>Use your points for lodging discounts and next season pass discounts.</p>
-      <div class="rewards-options">
-        <button id="redeemLodging">Redeem Lodging Discount (500 pts)</button>
-        <button id="redeemPass">Redeem Next Season Pass Discount (750 pts)</button>
-      </div>
+      <button class="redeem-btn" data-cost="500" data-reward="Lodging Discount">
+        Redeem Lodging Discount (500 pts)
+      </button>
+      <button class="redeem-btn" data-cost="750" data-reward="Next Season Pass Discount">
+        Redeem Next Season Pass Discount (750 pts)
+      </button>
     </section>
   </main>
-  
-  <!-- Fixed Bottom Navigation -->
-  <footer class="home-footer">
-    <nav class="bottom-nav">
-      <ul>
-        <li><a href="home.html" class="nav-link">Home</a></li>
-        <li><a href="resort.html" class="nav-link">Resort</a></li>
-        <li><a href="rewards.html" class="nav-link active">Rewards</a></li>
-        <li><a href="more.html" class="nav-link">More</a></li>
-      </ul>
-    </nav>
-  </footer>
-  
-  <script>
-    // Initialize points (global variable)
-    let currentPoints = 1000;
-    
-    // Function to update points display
-    function updatePointsDisplay() {
-      document.getElementById('pointsDisplay').textContent = currentPoints;
-    }
-    
-    // Earn points
-    document.getElementById('earnPointsBtn').addEventListener('click', function(){
-      currentPoints += 100;
-      updatePointsDisplay();
-      alert("You've earned 100 points!");
-    });
-    
-    // Reward Redemption Function
-    function redeemReward(cost, rewardName) {
-      if (currentPoints >= cost) {
-        currentPoints -= cost;
-        updatePointsDisplay();
-        alert(`You have successfully redeemed a ${rewardName}!`);
-      } else {
-        alert(`You need ${cost - currentPoints} more points to redeem a ${rewardName}.`);
-      }
-    }
-    
-    document.getElementById('redeemLodging').addEventListener('click', function(){
-      redeemReward(500, "Lodging Discount");
-    });
-    
-    document.getElementById('redeemPass').addEventListener('click', function(){
-      redeemReward(750, "Next Season Pass Discount");
-    });
-    
-    // Initialize display on page load
-    updatePointsDisplay();
-  </script>
+
+  <!-- Fixed Bottom Navigation Bar -->
+  <nav class="bottom-nav">
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="resort.html">Resort</a></li>
+      <li><a href="rewards.html">Rewards</a></li>
+      <li><a href="more.html">More</a></li>
+    </ul>
+  </nav>
+
+  <script src="js/auth.js"></script>
+  <!-- Additional JS for rewards functionality can be added here -->
 </body>
 </html>
-

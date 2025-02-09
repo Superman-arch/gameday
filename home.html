@@ -2,84 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Home screen for My Epic App.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - My Epic App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Epic App – Home</title>
   <link rel="stylesheet" href="css/style.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="home-page">
-  <!-- Background: Sky blue gradient -->
-  <div class="home-background"></div>
-  
-  <!-- Top Header -->
-  <header class="home-header">
-    <div class="profile-pic">
-      <img src="https://via.placeholder.com/50" alt="Profile Picture">
+<body>
+  <header>
+    <div class="header-left">
+      <h1 class="app-title">My Epic App</h1>
     </div>
-    <h1 class="greeting">Welcome, Deca</h1>
+    <div class="header-right">
+      <!-- Profile picture and personalized greeting -->
+      <img src="images/deca.png" alt="Profile Picture for Deca" class="profile-pic">
+      <span class="greeting">Welcome, Deca</span>
+    </div>
   </header>
-  
-  <!-- Main Content -->
-  <main class="home-main container">
+
+  <main>
     <!-- Days Tracked Section -->
     <section class="days-tracked">
-      <p class="tracked-text">1 Day this season</p>
-      <button class="start-tracking-btn">Start Tracking</button>
+      <h2>Days Tracked</h2>
+      <button id="trackDaysBtn">Track Your Day</button>
     </section>
-    
-    <!-- My Epic Assistant Section -->
-    <section class="assistant-section">
-      <div class="assistant-box">
-        <div class="assistant-icon">
-          <img src="ai.png" alt="Assistant Icon">
-        </div>
-        <p class="assistant-title">MY EPIC ASSISTANT</p>
-        <div class="assistant-search">
-          <input type="text" placeholder="Where can I park near the lift?">
-          <div class="search-icon">
-            <img src="search.png" alt="Search Icon">
-          </div>
-        </div>
+
+    <!-- Epic Assistant Section -->
+    <section class="epic-assistant">
+      <div class="assistant-header">
+        <img src="images/ai.png" alt="Epic Assistant Icon" class="assistant-icon">
+        <h2>My Epic Assistant</h2>
+      </div>
+      <div class="assistant-search">
+        <input type="text" placeholder="Search..." aria-label="Search">
+        <img src="images/search.png" alt="Search Icon" class="search-icon">
       </div>
     </section>
-    
-    <!-- My Pass & Tickets Section -->
-    <section class="pass-section">
+
+    <!-- Digital Pass & Tickets Section -->
+    <section class="pass-tickets">
+      <h2>My Pass & Tickets</h2>
       <div class="pass-card">
-        <div class="pass-left">
-          <p class="season-text">Season 24/25</p>
+        <div class="pass-details">
+          <p class="season">Season 24/25</p>
+          <p class="pass-title">EPIC LOCAL PASS</p>
+          <p class="user-name">Deca</p>
         </div>
-        <div class="pass-middle">
-          <h2 class="pass-title">EPIC LOCAL PASS</h2>
-          <div class="pass-profile">
-            <img src="https://via.placeholder.com/40" alt="Profile">
-            <p class="pass-username">Deca</p>
-          </div>
+        <div class="pass-status">
+          <!-- Use a green checkmark icon to indicate pass validity -->
+          <img src="images/checkmark.png" alt="Valid Pass" class="checkmark-icon">
         </div>
-        <div class="pass-right">
-          <img src="pass.jpg" alt="Active">
-        </div>
-      </div>
-      <p class="pass-status">Your pass will scan from your pocket.</p>
-      <div class="pass-buttons">
-        <button class="pass-btn">See Pass</button>
-        <button class="pass-btn">Resort Access</button>
       </div>
     </section>
   </main>
-  
-  <!-- Fixed Bottom Navigation -->
-  <footer class="home-footer">
-    <nav class="bottom-nav">
-      <ul>
-        <li><a href="home.html" class="nav-link active">Home</a></li>
-        <li><a href="resort.html" class="nav-link">Resort</a></li>
-        <li><a href="rewards.html" class="nav-link">Rewards</a></li>
-        <li><a href="more.html" class="nav-link">More</a></li>
-      </ul>
-    </nav>
-  </footer>
+
+  <!-- Fixed Bottom Navigation Bar -->
+  <nav class="bottom-nav">
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="resort.html">Resort</a></li>
+      <li><a href="rewards.html">Rewards</a></li>
+      <li><a href="more.html">More</a></li>
+    </ul>
+  </nav>
+
+  <script src="js/auth.js"></script>
 </body>
 </html>

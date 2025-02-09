@@ -2,9 +2,9 @@
 
 /* Root Variables */
 :root {
-  --primary-orange: #FF7F00;
+  --primary-orange: #ff7f00;
   --dark-blue: #003366;
-  --light-blue: #87CEFA;
+  --light-blue: #87cefa;
   --white: #fff;
   --gray: #ccc;
 }
@@ -21,6 +21,12 @@ body {
   color: var(--dark-blue);
   background: var(--white);
   line-height: 1.6;
+}
+
+/* Global Image Settings */
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 /* Header Styles */
@@ -181,18 +187,28 @@ main {
 
 /* Bottom Navigation Bar */
 .bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--white);
+  border-top: 1px solid var(--gray);
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: var(--light-blue);
-  border-top: 1px solid var(--gray);
 }
 
 .bottom-nav ul {
-  list-style: none;
   display: flex;
+  width: 100%;
   justify-content: space-around;
-  padding: 0.5rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.bottom-nav li {
+  flex-grow: 1;
+  text-align: center;
 }
 
 .bottom-nav a {
@@ -302,57 +318,37 @@ main {
   margin-bottom: 1rem;
 }
 
-/* Resort Selection Screen Styles */
-.resort-search {
+/* Epic Assistant Section (for Home Screen) */
+.epic-assistant {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
+  gap: 10px;
 }
 
-.resort-search input {
-  flex: 1;
-  padding: 0.5rem;
-  border: 1px solid var(--gray);
-  border-radius: 4px 0 0 4px;
+.assistant-icon {
+  width: 50px;
+  height: 50px;
 }
 
-.resort-search .search-icon {
-  width: 24px;
-  height: 24px;
-  background-color: var(--gray);
-  padding: 0.5rem;
-  border-radius: 0 4px 4px 0;
-}
-
+/* Resort Selection Screen Styles */
 .resort-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+  padding: 1rem;
 }
 
 .resort-card {
-  display: flex;
-  align-items: center;
-  border: 1px solid var(--gray);
-  border-radius: 4px;
-  padding: 1rem;
+  background: var(--white);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .resort-logo {
   width: 60px;
   height: 60px;
-  margin-right: 1rem;
-}
-
-.resort-info h2 {
-  margin-bottom: 0.5rem;
-}
-
-.favorite-btn {
-  margin-left: auto;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
+  margin-bottom: 1rem;
 }
 
 /* More Menu Screen Styles */

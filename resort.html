@@ -9,12 +9,12 @@
 <body>
   <header>
     <h1>Select a Resort</h1>
-    <!-- Close button returns user to the Home screen -->
+    <!-- Close button to return to the Home screen -->
     <button class="close-btn" onclick="window.location.href='home.html';" aria-label="Close Resort Selection">X</button>
   </header>
 
   <main>
-    <!-- Search Bar for Filtering Resorts -->
+    <!-- Resort Search Bar -->
     <section class="resort-search">
       <input type="text" placeholder="Search resorts..." aria-label="Search resorts">
       <img src="images/search.png" alt="Search Icon" class="search-icon">
@@ -22,9 +22,9 @@
 
     <!-- List of Resort Cards -->
     <section class="resort-list">
-      <!-- Example Resort Card -->
+      <!-- Example Resort Card 1 -->
       <article class="resort-card">
-        <img src="images/resort-logo1.png" alt="Resort Logo" class="resort-logo">
+        <img src="images/resort-logo1.png" alt="Mountain Resort Logo" class="resort-logo">
         <div class="resort-info">
           <h2>Mountain Resort</h2>
           <p>Location: Aspen, CO</p>
@@ -34,10 +34,9 @@
           <img src="images/star.png" alt="Favorite Star Icon">
         </button>
       </article>
-
-      <!-- Additional Resort Card Example -->
+      <!-- Example Resort Card 2 -->
       <article class="resort-card">
-        <img src="images/resort-logo2.png" alt="Resort Logo" class="resort-logo">
+        <img src="images/resort-logo2.png" alt="Snow Valley Logo" class="resort-logo">
         <div class="resort-info">
           <h2>Snow Valley</h2>
           <p>Location: Vail, CO</p>
@@ -47,15 +46,15 @@
           <img src="images/star.png" alt="Favorite Star Icon">
         </button>
       </article>
-      <!-- Repeat similar cards as needed -->
+      <!-- Additional resort cards can be added here -->
     </section>
   </main>
 
-  <!-- Fixed Bottom Navigation Bar -->
+  <!-- Bottom Navigation Bar -->
   <nav class="bottom-nav">
     <ul>
       <li><a href="home.html">Home</a></li>
-      <li><a href="resort.html">Resort</a></li>
+      <li><a href="resort.html" class="active">Resort</a></li>
       <li><a href="rewards.html">Rewards</a></li>
       <li><a href="more.html">More</a></li>
     </ul>

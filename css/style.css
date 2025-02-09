@@ -1,16 +1,22 @@
 /* ---------------------------------------------------------------------------
    Global Styles & CSS Variables
 --------------------------------------------------------------------------- */
+/* Uncomment the following to test that your CSS is loading */
+/*
+body {
+  background-color: #f0f0f0 !important;
+}
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 
 :root {
   --primary-orange: #FF7F00;
+  --primary-orange-hover: #e67300;
   --dark-blue: #003366;
   --light-blue: #87CEFA;
   --white: #ffffff;
   --gray: #ccc;
-  /* A manually darker variant for hover effects */
-  --primary-orange-hover: #e67300;
 }
 
 * {
@@ -26,7 +32,6 @@ body {
   color: var(--dark-blue);
 }
 
-/* Remove default list and link styles */
 ul {
   list-style: none;
 }
@@ -46,13 +51,13 @@ img {
   display: block;
 }
 
-/* Ensure main content is not hidden by fixed nav */
+/* Ensure main content is not hidden behind the fixed navigation */
 main {
-  padding-bottom: 60px;
+  padding-bottom: 70px;
 }
 
 /* ---------------------------------------------------------------------------
-   ----- Login Screen Styles (index.html) -----
+   ----- Login Screen (index.html) Styles -----
 --------------------------------------------------------------------------- */
 
 /* Full‑screen background image with bottom overlay */
@@ -77,7 +82,7 @@ main {
   z-index: -1;
 }
 
-/* Header styling */
+/* Header: Epic logo and title */
 header .header-inner {
   text-align: center;
   padding-top: 2rem;
@@ -162,11 +167,11 @@ header .header-inner {
   color: var(--light-blue);
 }
 
-/* Sign In Button */
+/* Sign In Button (disabled by default) */
 button[type="submit"] {
   width: 100%;
   padding: 0.75rem;
-  background-color: var(--gray); /* Disabled state */
+  background-color: var(--gray);
   border: none;
   border-radius: 4px;
   color: var(--white);
@@ -184,7 +189,7 @@ button[type="submit"]:hover:enabled {
   background-color: var(--primary-orange-hover);
 }
 
-/* Extra Options (Sign Up / Guest) */
+/* Extra Options (Sign Up / Continue as Guest) */
 .extra-options {
   display: flex;
   justify-content: space-between;
@@ -204,7 +209,7 @@ button[type="submit"]:hover:enabled {
 }
 
 /* ---------------------------------------------------------------------------
-   ----- Home Screen (Dashboard: home.html) -----
+   ----- Home Screen (home.html) Styles -----
 --------------------------------------------------------------------------- */
 
 /* Header for Home Screen */
@@ -334,7 +339,7 @@ header {
 }
 
 /* ---------------------------------------------------------------------------
-   ----- Rewards Screen (rewards.html) -----
+   ----- Rewards Screen (rewards.html) Styles -----
 --------------------------------------------------------------------------- */
 .points-display {
   text-align: center;
@@ -389,7 +394,7 @@ header {
 }
 
 /* ---------------------------------------------------------------------------
-   ----- Resort Selection Screen (resort.html) -----
+   ----- Resort Selection Screen (resort.html) Styles -----
 --------------------------------------------------------------------------- */
 header h1 {
   text-align: center;
@@ -481,7 +486,7 @@ header h1 {
 }
 
 /* ---------------------------------------------------------------------------
-   ----- More Menu Screen (more.html) -----
+   ----- More Menu Screen (more.html) Styles -----
 --------------------------------------------------------------------------- */
 header .header-left,
 header .header-right {
@@ -515,7 +520,7 @@ header .header-right {
 }
 
 /* ---------------------------------------------------------------------------
-   ----- Fixed Bottom Navigation (all screens) -----
+   ----- Fixed Bottom Navigation (All Screens) -----
 --------------------------------------------------------------------------- */
 .bottom-nav {
   position: fixed;
@@ -525,12 +530,17 @@ header .header-right {
   background-color: var(--white);
   border-top: 1px solid var(--gray);
   box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-around;
+  padding: 0.5rem 0;
+  z-index: 10;
 }
 
 .bottom-nav ul {
   display: flex;
+  width: 100%;
   justify-content: space-around;
-  padding: 0.5rem 0;
+  padding: 0;
 }
 
 .bottom-nav li a {

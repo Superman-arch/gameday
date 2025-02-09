@@ -1,729 +1,147 @@
-/* ---------------------------------------------------------------------------
-   Global Styles & CSS Variables
---------------------------------------------------------------------------- */
-/* Uncomment the following rule to test if your stylesheet is loading */
-/*
-body {
-  background-color: #f0f0f0 !important;
-}
-*/
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
-:root {
-  --primary-orange: #FF7F00;
-  --primary-orange-hover: #e67300;
-  --dark-blue: #003366;
-  --light-blue: #87CEFA;
-  --white: #ffffff;
-  --gray: #ccc;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Montserrat', sans-serif;
-  line-height: 1.6;
-  background-color: var(--white);
-  color: var(--dark-blue);
-}
-
-ul {
-  list-style: none;
-}
-
-a {
-  text-decoration: none;
-  color: var(--light-blue);
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: var(--primary-orange);
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-/* Common container class */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-/* Ensure main content is not hidden behind the fixed navigation */
-main {
-  padding-bottom: 70px;
-}
-
-/* ---------------------------------------------------------------------------
-   ----- Login Screen (index.html) Styles -----
---------------------------------------------------------------------------- */
-
-/* Full‑screen background with overlay */
-.background-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  z-index: -2;
-}
-
-.overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 30%;
-  background: rgba(255, 255, 255, 0.8);
-  z-index: -1;
-}
-
-/* Header with Epic logo and title */
-header .header-inner {
-  text-align: center;
-  padding-top: 2rem;
-}
-
-.logo {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--primary-orange);
-}
-
-.title {
-  font-size: 1.5rem;
-  margin-top: 0.5rem;
-  color: var(--dark-blue);
-}
-
-/* Login Form Card */
-.login-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  position: relative;
-  z-index: 1;
-}
-
-.login-card {
-  background: var(--white);
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  width: 90%;
-  max-width: 400px;
-}
-
-.form-group {
-  margin-bottom: 1rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid var(--gray);
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-/* Password input with embedded Face ID icon */
-.password-container {
-  position: relative;
-}
-
-.password-container input {
-  padding-right: 2.5rem;
-}
-
-.faceid-icon {
-  position: absolute;
-  top: 50%;
-  right: 0.75rem;
-  transform: translateY(-50%);
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
-/* Form Links */
-.form-links {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
-.forgot-link {
-  font-size: 0.875rem;
-  color: var(--light-blue);
-}
-
-/* Sign In Button (disabled by default) */
-button[type="submit"] {
-  width: 100%;
-  padding: 0.75rem;
-  background-color: var(--gray);
-  border: none;
-  border-radius: 4px;
-  color: var(--white);
-  font-size: 1rem;
-  cursor: not-allowed;
-  transition: background-color 0.3s ease;
-}
-
-button[type="submit"]:enabled {
-  background-color: var(--primary-orange);
-  cursor: pointer;
-}
-
-button[type="submit"]:hover:enabled {
-  background-color: var(--primary-orange-hover);
-}
-
-/* Extra Options (Sign Up / Continue as Guest) */
-.extra-options {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
-}
-
-.option-link {
-  font-size: 0.9rem;
-  color: var(--light-blue);
-}
-
-#errorMsg {
-  margin-top: 1rem;
-  color: red;
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-/* ---------------------------------------------------------------------------
-   ----- Home Screen (home.html) Styles -----
---------------------------------------------------------------------------- */
-
-/* Header for Home Screen */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background-color: var(--white);
-  border-bottom: 1px solid var(--gray);
-}
-
-.header-left .app-title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: var(--dark-blue);
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-}
-
-.profile-pic {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 0.5rem;
-}
-
-.greeting {
-  font-size: 1rem;
-  color: var(--dark-blue);
-}
-
-/* Days Tracked Section */
-.days-tracked {
-  text-align: center;
-  padding: 2rem;
-}
-
-.days-tracked h2 {
-  margin-bottom: 1rem;
-}
-
-#trackDaysBtn {
-  padding: 0.75rem 1.5rem;
-  background-color: var(--primary-orange);
-  color: var(--white);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-#trackDaysBtn:hover {
-  background-color: var(--primary-orange-hover);
-}
-
-/* Epic Assistant Section */
-.epic-assistant {
-  background-color: var(--dark-blue);
-  color: var(--white);
-  margin: 1rem;
-  padding: 1rem;
-  border-radius: 8px;
-}
-
-.assistant-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.assistant-icon {
-  width: 30px;
-  height: 30px;
-  margin-right: 0.5rem;
-}
-
-.assistant-search {
-  position: relative;
-}
-
-.assistant-search input {
-  width: 100%;
-  padding: 0.75rem 2.5rem 0.75rem 0.75rem;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-.assistant-search .search-icon {
-  position: absolute;
-  top: 50%;
-  right: 0.75rem;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-}
-
-/* My Pass & Tickets Section */
-.pass-tickets {
-  margin: 1rem;
-  padding: 1rem;
-}
-
-.pass-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid var(--gray);
-  border-radius: 8px;
-  padding: 1rem;
-  background-color: var(--white);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.pass-details p {
-  margin: 0.25rem 0;
-}
-
-.pass-status img {
-  width: 30px;
-  height: 30px;
-}
-
-/* ---------------------------------------------------------------------------
-   ----- Revamped Rewards Screen (rewards.html) Styles -----
---------------------------------------------------------------------------- */
-
-/* Header for Rewards */
-header .header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  border-bottom: 1px solid var(--gray);
-  background-color: var(--white);
-}
-
-header .header-content h1 {
-  font-size: 1.75rem;
-  /* Inline color from HTML (var(--primary-orange)) is used, but you can override it here if needed */
-}
-
-header .profile-info {
-  display: flex;
-  align-items: center;
-}
-
-/* Hero Banner */
-.hero {
-  position: relative;
-  height: 250px;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-overlay {
-  background: rgba(0, 0, 0, 0.5);
-  color: var(--white);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1rem;
-}
-
-.hero-overlay h2 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.hero-overlay p {
-  font-size: 1rem;
-  max-width: 600px;
-}
-
-/* Points & Achievements Section */
-.points-achievements {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 2rem 0;
-}
-
-.points-display {
-  flex: 1;
-  min-width: 280px;
-  text-align: center;
-  background-color: var(--white);
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.points-display h2 {
-  margin-bottom: 0.5rem;
-}
-
-.points-amount {
-  font-size: 2rem;
-  font-weight: bold;
-  margin: 0.5rem 0;
-}
-
-.action-btn {
-  padding: 0.75rem 1.5rem;
-  background-color: var(--primary-orange);
-  color: var(--white);
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.action-btn:hover {
-  background-color: var(--primary-orange-hover);
-}
-
-.achievements {
-  flex: 1;
-  min-width: 280px;
-  background-color: var(--white);
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.achievements h2 {
-  margin-bottom: 0.5rem;
-  text-align: center;
-}
-
-.achievements ul {
-  padding: 0;
-}
-
-.achievements li {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
-}
-
-.achievements li img {
-  width: 24px;
-  height: 24px;
-  margin-right: 0.5rem;
-}
-
-/* Rewards Redemption Section */
-.rewards-redemption {
-  text-align: center;
-  padding: 2rem 0;
-}
-
-.rewards-redemption h2 {
-  margin-bottom: 0.5rem;
-}
-
-.rewards-redemption p {
-  margin-bottom: 1.5rem;
-}
-
-.rewards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
-}
-
-.redeem-btn {
-  padding: 0.75rem;
-  background-color: var(--white);
-  color: var(--dark-blue);
-  border: 2px solid var(--primary-orange);
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.redeem-btn:hover {
-  background-color: var(--primary-orange);
-  color: var(--white);
-}
-
-/* Value Proposition Section */
-.value-proposition {
-  padding: 2rem 0;
-}
-
-.value-proposition h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.value-proposition article {
-  background-color: var(--white);
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-.value-proposition article p {
-  margin-bottom: 1rem;
-}
-
-/* ---------------------------------------------------------------------------
-   ----- Resort Selection Screen (resort.html) Styles -----
---------------------------------------------------------------------------- */
-header h1 {
-  text-align: center;
-  padding: 1rem;
-  font-size: 1.75rem;
-  color: var(--dark-blue);
-}
-
-.close-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: var(--dark-blue);
-}
-
-/* Resort Search Bar */
-.resort-search {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  background-color: var(--white);
-  border-bottom: 1px solid var(--gray);
-}
-
-.resort-search input {
-  flex: 1;
-  padding: 0.75rem;
-  border: 1px solid var(--gray);
-  border-radius: 4px;
-}
-
-.resort-search .search-icon {
-  width: 20px;
-  height: 20px;
-  margin-left: 0.5rem;
-}
-
-/* Resort Cards Grid */
-.resort-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.resort-card {
-  background-color: var(--white);
-  border: 1px solid var(--gray);
-  border-radius: 8px;
-  padding: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.resort-card .resort-logo {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin-right: 1rem;
-}
-
-.resort-info h2 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  color: var(--dark-blue);
-}
-
-.resort-info p {
-  font-size: 0.9rem;
-  margin-bottom: 0.25rem;
-  color: var(--dark-blue);
-}
-
-.favorite-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.favorite-btn img {
-  width: 24px;
-  height: 24px;
-}
-
-/* ---------------------------------------------------------------------------
-   ----- More Menu Screen (more.html) Styles -----
---------------------------------------------------------------------------- */
-header .header-left,
-header .header-right {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-}
-
-.menu-section {
-  padding: 1rem;
-  border-bottom: 1px solid var(--gray);
-}
-
-.menu-section h2 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  color: var(--dark-blue);
-}
-
-.menu-section ul li {
-  margin-bottom: 0.5rem;
-}
-
-.menu-section ul li a {
-  color: var(--light-blue);
-  font-size: 1rem;
-}
-
-.menu-section ul li a:hover {
-  color: var(--primary-orange);
-}
-
-/* ---------------------------------------------------------------------------
-   ----- Fixed Bottom Navigation (All Screens) -----
---------------------------------------------------------------------------- */
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: var(--white);
-  border-top: 1px solid var(--gray);
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-around;
-  padding: 0.5rem 0;
-  z-index: 10;
-}
-
-.bottom-nav ul {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
-  padding: 0;
-}
-
-.bottom-nav li a {
-  color: var(--dark-blue);
-  font-size: 1rem;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.bottom-nav li a:hover {
-  color: var(--primary-orange);
-}
-
-/* Active link style for bottom navigation */
-.bottom-nav li a.active {
-  color: var(--primary-orange);
-  font-weight: bold;
-}
-
-/* ---------------------------------------------------------------------------
-   ----- Responsive Styles -----
---------------------------------------------------------------------------- */
-@media (max-width: 768px) {
-  /* Adjust card margins and navigation layout */
-  .login-card,
-  .pass-card,
-  .redeem-btn,
-  .resort-card {
-    margin: 0 auto;
+// js/auth.js
+
+(function() {
+  // Global variable for rewards points (starting at 1000)
+  let currentPoints = 1000;
+
+  /* -------------------------------------
+     Rewards Functions
+  ------------------------------------- */
+  /**
+   * Updates the points display (if present) with the current points.
+   */
+  function updatePointsDisplay() {
+    const pointsElement = document.getElementById('pointsValue');
+    if (pointsElement) {
+      pointsElement.innerText = currentPoints;
+    }
   }
 
-  .bottom-nav ul {
-    flex-direction: column;
+  /**
+   * Adds 100 points to the current total, updates the display,
+   * and notifies the user.
+   */
+  function earnPoints() {
+    currentPoints += 100;
+    updatePointsDisplay();
+    alert('You earned 100 points!');
+    console.log('Points increased. Current points:', currentPoints);
   }
 
-  .bottom-nav li {
-    margin: 0.5rem 0;
+  /**
+   * Handles reward redemption by reading the cost and reward name from
+   * the button's data attributes; if sufficient points exist,
+   * deducts the cost and confirms the redemption.
+   * @param {Event} event - The click event from a redeem button.
+   */
+  function redeemReward(event) {
+    const button = event.currentTarget;
+    const cost = parseInt(button.getAttribute('data-cost'), 10);
+    const rewardName = button.getAttribute('data-reward');
+
+    if (currentPoints >= cost) {
+      currentPoints -= cost;
+      updatePointsDisplay();
+      alert('Congratulations! You have redeemed: ' + rewardName);
+      console.log(`Redeemed "${rewardName}". Points remaining:`, currentPoints);
+    } else {
+      alert('Insufficient points to redeem ' + rewardName + '.');
+      console.log('Redemption failed for:', rewardName);
+    }
   }
 
-  .resort-list {
-    grid-template-columns: 1fr;
+  /* -------------------------------------
+     Login Authentication Functions
+  ------------------------------------- */
+  /**
+   * Validates login credentials when the form is submitted.
+   * Redirects to home.html if credentials are correct.
+   * @param {Event} event - The form submission event.
+   */
+  function validateLogin(event) {
+    event.preventDefault();
+
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const errorMsg = document.getElementById('errorMsg');
+
+    // Sanitize and retrieve input values
+    const email = emailInput.value.trim().toLowerCase();
+    const password = passwordInput.value;
+
+    // Check against deca-oriented credentials
+    if (email === 'deca@gmail.com' && password === 'deca') {
+      // Successful login; redirect to Home (Dashboard) screen
+      window.location.href = 'home.html';
+    } else {
+      // Display error message for incorrect credentials
+      errorMsg.textContent = 'Invalid email or password. Please try again.';
+      console.log('Login failed: invalid credentials.');
+    }
   }
-}
+
+  /**
+   * Checks if both email and password fields have values,
+   * enabling or disabling the SIGN IN button accordingly.
+   */
+  function checkFormInputs() {
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const signInBtn = document.getElementById('signInBtn');
+
+    if (emailInput && passwordInput && signInBtn) {
+      signInBtn.disabled = (emailInput.value.trim() === '' || passwordInput.value.trim() === '');
+    }
+  }
+
+  /* -------------------------------------
+     Additional Interaction Functions
+  ------------------------------------- */
+  /**
+   * Tracks a day when the "Track Your Day" button is clicked.
+   */
+  function trackDay() {
+    alert('Your day has been tracked!');
+    console.log('Track day button clicked.');
+  }
+
+  /* -------------------------------------
+     Event Listener Attachments
+  ------------------------------------- */
+  // Login Form (for index.html)
+  const loginForm = document.getElementById('loginForm');
+  if (loginForm) {
+    loginForm.addEventListener('submit', validateLogin);
+
+    // Enable SIGN IN button only when both email and password have input
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    if (emailInput && passwordInput) {
+      emailInput.addEventListener('input', checkFormInputs);
+      passwordInput.addEventListener('input', checkFormInputs);
+    }
+  }
+
+  // Track Day Button (for home.html)
+  const trackDaysBtn = document.getElementById('trackDaysBtn');
+  if (trackDaysBtn) {
+    trackDaysBtn.addEventListener('click', trackDay);
+  }
+
+  // Earn Points Button (for rewards.html)
+  const earnPointsBtn = document.getElementById('earnPointsBtn');
+  if (earnPointsBtn) {
+    earnPointsBtn.addEventListener('click', earnPoints);
+    updatePointsDisplay(); // Initialize the points display when the page loads
+  }
+
+  // Reward Redemption Buttons (for rewards.html)
+  const redeemButtons = document.querySelectorAll('.redeem-btn');
+  if (redeemButtons.length > 0) {
+    redeemButtons.forEach(button => {
+      button.addEventListener('click', redeemReward);
+    });
+  }
+
+  // Additional event listeners can be added here for other pages or interactions
+})();

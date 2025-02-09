@@ -1,73 +1,78 @@
-/* ---------------------------------------------------------------------------
-   Global Styles & CSS Variables
---------------------------------------------------------------------------- */
-/* Uncomment the following rule to test if your stylesheet is loading */
-/*
-body {
-  background-color: #f0f0f0 !important;
-}
-*/
+/* css/style.css */
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
+/* Root Variables */
 :root {
   --primary-orange: #FF7F00;
-  --primary-orange-hover: #e67300;
   --dark-blue: #003366;
   --light-blue: #87CEFA;
-  --white: #ffffff;
+  --white: #fff;
   --gray: #ccc;
 }
 
+/* Global Resets & Base Styles */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
-  line-height: 1.6;
-  background-color: var(--white);
+  font-family: Arial, sans-serif;
   color: var(--dark-blue);
+  background: var(--white);
+  line-height: 1.6;
 }
 
-ul {
-  list-style: none;
+/* Header Styles */
+header {
+  padding: 1rem;
+  background-color: var(--light-blue);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-a {
-  text-decoration: none;
-  color: var(--light-blue);
-  transition: color 0.3s ease;
+header h1,
+header h2 {
+  margin: 0;
 }
 
-a:hover {
-  color: var(--primary-orange);
+.header-inner {
+  text-align: center;
 }
 
-img {
-  max-width: 100%;
-  display: block;
+.app-title {
+  font-size: 1.5rem;
 }
 
-/* Common container class */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
 }
 
-/* Ensure main content is not hidden behind the fixed navigation */
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 0.5rem;
+}
+
+/* Main Content Styles */
 main {
-  padding-bottom: 70px;
+  padding: 2rem;
 }
 
-/* ---------------------------------------------------------------------------
-   ----- Login Screen (index.html) Styles -----
---------------------------------------------------------------------------- */
+/* Login Screen Styles */
+.login-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
 
-/* Full‑screen background with overlay */
 .background-container {
   position: fixed;
   top: 0;
@@ -80,50 +85,28 @@ main {
 }
 
 .overlay {
-  position: absolute;
-  bottom: 0;
+  position: fixed;
+  top: 0;
   left: 0;
   width: 100%;
-  height: 30%;
-  background: rgba(255, 255, 255, 0.8);
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: -1;
 }
 
-/* Header with Epic logo and title */
-header .header-inner {
-  text-align: center;
-  padding-top: 2rem;
-}
-
-.logo {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--primary-orange);
-}
-
-.title {
-  font-size: 1.5rem;
-  margin-top: 0.5rem;
-  color: var(--dark-blue);
-}
-
-/* Login Form Card */
-.login-section {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  position: relative;
-  z-index: 1;
-}
-
 .login-card {
-  background: var(--white);
+  background-color: var(--white);
   padding: 2rem;
+  border: 1px solid var(--gray);
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  width: 90%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   max-width: 400px;
+  width: 100%;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
 }
 
 .form-group {
@@ -131,38 +114,32 @@ header .header-inner {
 }
 
 .form-group label {
-  display: block;
   margin-bottom: 0.5rem;
-  font-weight: 600;
+  display: block;
 }
 
 .form-group input {
-  width: 100%;
-  padding: 0.75rem;
+  padding: 0.5rem;
   border: 1px solid var(--gray);
   border-radius: 4px;
-  font-size: 1rem;
+  width: 100%;
 }
 
-/* Password input with embedded Face ID icon */
 .password-container {
-  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .password-container input {
-  padding-right: 2.5rem;
+  flex: 1;
 }
 
 .faceid-icon {
-  position: absolute;
-  top: 50%;
-  right: 0.75rem;
-  transform: translateY(-50%);
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 24px;
+  height: 24px;
+  margin-left: 0.5rem;
 }
 
-/* Form Links */
 .form-links {
   display: flex;
   justify-content: space-between;
@@ -170,33 +147,11 @@ header .header-inner {
 }
 
 .forgot-link {
-  font-size: 0.875rem;
-  color: var(--light-blue);
+  font-size: 0.9rem;
+  color: var(--primary-orange);
+  text-decoration: none;
 }
 
-/* Sign In Button (disabled by default) */
-button[type="submit"] {
-  width: 100%;
-  padding: 0.75rem;
-  background-color: var(--gray);
-  border: none;
-  border-radius: 4px;
-  color: var(--white);
-  font-size: 1rem;
-  cursor: not-allowed;
-  transition: background-color 0.3s ease;
-}
-
-button[type="submit"]:enabled {
-  background-color: var(--primary-orange);
-  cursor: pointer;
-}
-
-button[type="submit"]:hover:enabled {
-  background-color: var(--primary-orange-hover);
-}
-
-/* Extra Options (Sign Up / Continue as Guest) */
 .extra-options {
   display: flex;
   justify-content: space-between;
@@ -205,222 +160,78 @@ button[type="submit"]:hover:enabled {
 
 .option-link {
   font-size: 0.9rem;
-  color: var(--light-blue);
+  color: var(--primary-orange);
+  text-decoration: none;
 }
 
-#errorMsg {
-  margin-top: 1rem;
-  color: red;
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-/* ---------------------------------------------------------------------------
-   ----- Home Screen (home.html) Styles -----
---------------------------------------------------------------------------- */
-
-/* Header for Home Screen */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background-color: var(--white);
-  border-bottom: 1px solid var(--gray);
-}
-
-.header-left .app-title {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: var(--dark-blue);
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-}
-
-.profile-pic {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 0.5rem;
-}
-
-.greeting {
-  font-size: 1rem;
-  color: var(--dark-blue);
-}
-
-/* Days Tracked Section */
-.days-tracked {
-  text-align: center;
-  padding: 2rem;
-}
-
-.days-tracked h2 {
-  margin-bottom: 1rem;
-}
-
-#trackDaysBtn {
-  padding: 0.75rem 1.5rem;
+#signInBtn {
   background-color: var(--primary-orange);
   color: var(--white);
   border: none;
+  padding: 0.75rem;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s;
 }
 
-#trackDaysBtn:hover {
-  background-color: var(--primary-orange-hover);
+#signInBtn:disabled {
+  background-color: var(--gray);
+  cursor: not-allowed;
 }
 
-/* Epic Assistant Section */
-.epic-assistant {
-  background-color: var(--dark-blue);
-  color: var(--white);
-  margin: 1rem;
-  padding: 1rem;
-  border-radius: 8px;
-}
-
-.assistant-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-.assistant-icon {
-  width: 30px;
-  height: 30px;
-  margin-right: 0.5rem;
-}
-
-.assistant-search {
-  position: relative;
-}
-
-.assistant-search input {
+/* Bottom Navigation Bar */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
   width: 100%;
-  padding: 0.75rem 2.5rem 0.75rem 0.75rem;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
+  background-color: var(--light-blue);
+  border-top: 1px solid var(--gray);
 }
 
-.assistant-search .search-icon {
-  position: absolute;
-  top: 50%;
-  right: 0.75rem;
-  transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
-}
-
-/* My Pass & Tickets Section */
-.pass-tickets {
-  margin: 1rem;
-  padding: 1rem;
-}
-
-.pass-card {
+.bottom-nav ul {
+  list-style: none;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid var(--gray);
-  border-radius: 8px;
-  padding: 1rem;
-  background-color: var(--white);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  justify-content: space-around;
+  padding: 0.5rem 0;
 }
 
-.pass-details p {
-  margin: 0.25rem 0;
+.bottom-nav a {
+  text-decoration: none;
+  color: var(--dark-blue);
+  font-weight: bold;
 }
 
-.pass-status img {
-  width: 30px;
-  height: 30px;
+.bottom-nav a.active {
+  color: var(--primary-orange);
 }
 
-/* ---------------------------------------------------------------------------
-   ----- Revamped Rewards Screen (rewards.html) Styles -----
---------------------------------------------------------------------------- */
-
-/* Header for Rewards */
-header .header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  border-bottom: 1px solid var(--gray);
-  background-color: var(--white);
-}
-
-header .header-content h1 {
-  font-size: 1.75rem;
-  /* Inline color from HTML (var(--primary-orange)) is used, but you can override it here if needed */
-}
-
-header .profile-info {
-  display: flex;
-  align-items: center;
-}
-
-/* Hero Banner */
-.hero {
-  position: relative;
-  height: 250px;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-overlay {
-  background: rgba(0, 0, 0, 0.5);
-  color: var(--white);
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+/* Dashboard Styles */
+.days-tracked {
+  margin-bottom: 2rem;
   text-align: center;
-  padding: 1rem;
 }
 
-.hero-overlay h2 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+#trackDaysBtn {
+  background-color: var(--primary-orange);
+  color: var(--white);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-.hero-overlay p {
-  font-size: 1rem;
-  max-width: 600px;
-}
-
-/* Points & Achievements Section */
+/* Rewards & Gamification Screen Styles */
 .points-achievements {
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
-  justify-content: space-between;
-  align-items: flex-start;
-  padding: 2rem 0;
+  margin-bottom: 2rem;
 }
 
 .points-display {
   flex: 1;
-  min-width: 280px;
-  text-align: center;
-  background-color: var(--white);
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  min-width: 250px;
 }
 
 .points-display h2 {
@@ -430,81 +241,49 @@ header .profile-info {
 .points-amount {
   font-size: 2rem;
   font-weight: bold;
-  margin: 0.5rem 0;
+  margin-bottom: 1rem;
 }
 
 .action-btn {
-  padding: 0.75rem 1.5rem;
   background-color: var(--primary-orange);
   color: var(--white);
   border: none;
+  padding: 0.75rem 1.5rem;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.action-btn:hover {
-  background-color: var(--primary-orange-hover);
-}
-
-.achievements {
-  flex: 1;
-  min-width: 280px;
-  background-color: var(--white);
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.achievements h2 {
-  margin-bottom: 0.5rem;
-  text-align: center;
+  transition: background 0.3s;
 }
 
 .achievements ul {
+  list-style: none;
   padding: 0;
 }
 
 .achievements li {
   display: flex;
   align-items: center;
+  gap: 0.5rem;
   margin-bottom: 0.5rem;
-}
-
-.achievements li img {
-  width: 24px;
-  height: 24px;
-  margin-right: 0.5rem;
 }
 
 /* Rewards Redemption Section */
 .rewards-redemption {
-  text-align: center;
-  padding: 2rem 0;
-}
-
-.rewards-redemption h2 {
-  margin-bottom: 0.5rem;
-}
-
-.rewards-redemption p {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .rewards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
 .redeem-btn {
-  padding: 0.75rem;
-  background-color: var(--white);
-  color: var(--dark-blue);
+  background-color: transparent;
   border: 2px solid var(--primary-orange);
+  padding: 0.75rem 1.5rem;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background 0.3s, color 0.3s;
 }
 
 .redeem-btn:hover {
@@ -514,216 +293,87 @@ header .profile-info {
 
 /* Value Proposition Section */
 .value-proposition {
-  padding: 2rem 0;
-}
-
-.value-proposition h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.value-proposition article {
-  background-color: var(--white);
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.6;
+  background-color: var(--light-blue);
+  padding: 1rem;
+  border-radius: 4px;
 }
 
 .value-proposition article p {
   margin-bottom: 1rem;
 }
 
-/* ---------------------------------------------------------------------------
-   ----- Resort Selection Screen (resort.html) Styles -----
---------------------------------------------------------------------------- */
-header h1 {
-  text-align: center;
-  padding: 1rem;
-  font-size: 1.75rem;
-  color: var(--dark-blue);
-}
-
-.close-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: var(--dark-blue);
-}
-
-/* Resort Search Bar */
+/* Resort Selection Screen Styles */
 .resort-search {
   display: flex;
   align-items: center;
-  padding: 1rem;
-  background-color: var(--white);
-  border-bottom: 1px solid var(--gray);
+  margin-bottom: 1rem;
 }
 
 .resort-search input {
   flex: 1;
-  padding: 0.75rem;
+  padding: 0.5rem;
   border: 1px solid var(--gray);
-  border-radius: 4px;
+  border-radius: 4px 0 0 4px;
 }
 
 .resort-search .search-icon {
-  width: 20px;
-  height: 20px;
-  margin-left: 0.5rem;
+  width: 24px;
+  height: 24px;
+  background-color: var(--gray);
+  padding: 0.5rem;
+  border-radius: 0 4px 4px 0;
 }
 
-/* Resort Cards Grid */
 .resort-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
-  padding: 1rem;
 }
 
 .resort-card {
-  background-color: var(--white);
-  border: 1px solid var(--gray);
-  border-radius: 8px;
-  padding: 1rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--gray);
+  border-radius: 4px;
+  padding: 1rem;
 }
 
-.resort-card .resort-logo {
+.resort-logo {
   width: 60px;
   height: 60px;
-  border-radius: 50%;
   margin-right: 1rem;
 }
 
 .resort-info h2 {
-  font-size: 1.25rem;
   margin-bottom: 0.5rem;
-  color: var(--dark-blue);
-}
-
-.resort-info p {
-  font-size: 0.9rem;
-  margin-bottom: 0.25rem;
-  color: var(--dark-blue);
 }
 
 .favorite-btn {
-  background: none;
+  margin-left: auto;
+  background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
-.favorite-btn img {
-  width: 24px;
-  height: 24px;
-}
-
-/* ---------------------------------------------------------------------------
-   ----- More Menu Screen (more.html) Styles -----
---------------------------------------------------------------------------- */
-header .header-left,
-header .header-right {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-}
-
+/* More Menu Screen Styles */
 .menu-section {
-  padding: 1rem;
-  border-bottom: 1px solid var(--gray);
+  margin-bottom: 2rem;
 }
 
 .menu-section h2 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  color: var(--dark-blue);
+  margin-bottom: 1rem;
 }
 
-.menu-section ul li {
-  margin-bottom: 0.5rem;
-}
-
-.menu-section ul li a {
-  color: var(--light-blue);
-  font-size: 1rem;
-}
-
-.menu-section ul li a:hover {
-  color: var(--primary-orange);
-}
-
-/* ---------------------------------------------------------------------------
-   ----- Fixed Bottom Navigation (All Screens) -----
---------------------------------------------------------------------------- */
-.bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: var(--white);
-  border-top: 1px solid var(--gray);
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-around;
-  padding: 0.5rem 0;
-  z-index: 10;
-}
-
-.bottom-nav ul {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
+.menu-section ul {
+  list-style: none;
   padding: 0;
 }
 
-.bottom-nav li a {
-  color: var(--dark-blue);
-  font-size: 1rem;
-  font-weight: 600;
-  transition: color 0.3s ease;
+.menu-section li {
+  margin-bottom: 0.5rem;
 }
 
-.bottom-nav li a:hover {
+.menu-section a {
+  text-decoration: none;
   color: var(--primary-orange);
-}
-
-/* Active link style for bottom navigation */
-.bottom-nav li a.active {
-  color: var(--primary-orange);
-  font-weight: bold;
-}
-
-/* ---------------------------------------------------------------------------
-   ----- Responsive Styles -----
---------------------------------------------------------------------------- */
-@media (max-width: 768px) {
-  /* Adjust card margins and navigation layout */
-  .login-card,
-  .pass-card,
-  .redeem-btn,
-  .resort-card {
-    margin: 0 auto;
-  }
-
-  .bottom-nav ul {
-    flex-direction: column;
-  }
-
-  .bottom-nav li {
-    margin: 0.5rem 0;
-  }
-
-  .resort-list {
-    grid-template-columns: 1fr;
-  }
 }

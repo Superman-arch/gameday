@@ -2,61 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Select a resort from My Epic App.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Select a Resort - My Epic App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Epic App – Select a Resort</title>
   <link rel="stylesheet" href="css/style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="resort-page">
-  <header class="resort-header container">
+<body>
+  <header>
     <h1>Select a Resort</h1>
-    <button class="close-btn" onclick="window.location.href='home.html'">×</button>
+    <!-- Close button returns user to the Home screen -->
+    <button class="close-btn" onclick="window.location.href='home.html';" aria-label="Close Resort Selection">X</button>
   </header>
-  
-  <!-- Search Bar -->
-  <section class="resort-search container">
-    <div class="search-bar">
-      <span class="magnify-icon"><img src="search.png" alt="Search"></span>
-      <input type="text" placeholder="Search Resorts">
-    </div>
-  </section>
-  
-  <!-- Resort List -->
-  <section class="resort-list container">
-    <div class="resort-card-list">
-      <div class="resort-logo">
-        <img src="skiimage1.webp" alt="Resort Logo">
-      </div>
-      <div class="resort-info">
-        <h3>Resort One</h3>
-        <p>Location • 2 miles</p>
-      </div>
-      <button class="fav-btn">☆</button>
-    </div>
-    <div class="resort-card-list">
-      <div class="resort-logo">
-        <img src="skiimage2.webp" alt="Resort Logo">
-      </div>
-      <div class="resort-info">
-        <h3>Resort Two</h3>
-        <p>Location • 5 miles</p>
-      </div>
-      <button class="fav-btn">☆</button>
-    </div>
-    <!-- Additional resort cards as needed -->
-  </section>
-  
-  <!-- Bottom Navigation -->
-  <footer class="resort-footer container">
-    <nav class="bottom-nav">
-      <ul>
-        <li><a href="home.html" class="nav-link">Home</a></li>
-        <li><a href="resort.html" class="nav-link active">Resort</a></li>
-        <li><a href="rewards.html" class="nav-link">Rewards</a></li>
-        <li><a href="more.html" class="nav-link">More</a></li>
-      </ul>
-    </nav>
-  </footer>
+
+  <main>
+    <!-- Search Bar for Filtering Resorts -->
+    <section class="resort-search">
+      <input type="text" placeholder="Search resorts..." aria-label="Search resorts">
+      <img src="images/search.png" alt="Search Icon" class="search-icon">
+    </section>
+
+    <!-- List of Resort Cards -->
+    <section class="resort-list">
+      <!-- Example Resort Card -->
+      <article class="resort-card">
+        <img src="images/resort-logo1.png" alt="Resort Logo" class="resort-logo">
+        <div class="resort-info">
+          <h2>Mountain Resort</h2>
+          <p>Location: Aspen, CO</p>
+          <p>Distance: 10 miles</p>
+        </div>
+        <button class="favorite-btn" aria-label="Mark as Favorite">
+          <img src="images/star.png" alt="Favorite Star Icon">
+        </button>
+      </article>
+
+      <!-- Additional Resort Card Example -->
+      <article class="resort-card">
+        <img src="images/resort-logo2.png" alt="Resort Logo" class="resort-logo">
+        <div class="resort-info">
+          <h2>Snow Valley</h2>
+          <p>Location: Vail, CO</p>
+          <p>Distance: 15 miles</p>
+        </div>
+        <button class="favorite-btn" aria-label="Mark as Favorite">
+          <img src="images/star.png" alt="Favorite Star Icon">
+        </button>
+      </article>
+      <!-- Repeat similar cards as needed -->
+    </section>
+  </main>
+
+  <!-- Fixed Bottom Navigation Bar -->
+  <nav class="bottom-nav">
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="resort.html">Resort</a></li>
+      <li><a href="rewards.html">Rewards</a></li>
+      <li><a href="more.html">More</a></li>
+    </ul>
+  </nav>
+
+  <script src="js/auth.js"></script>
 </body>
 </html>

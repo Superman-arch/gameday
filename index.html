@@ -5,17 +5,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>My Epic App – Login</title>
   <link rel="stylesheet" href="css/style.css">
+  <!--
+    In your style.css, define variables such as:
+    :root {
+      --primary-orange: #FF7F00;
+      --dark-blue: #003366;
+      --light-blue: #87CEFA;
+      --white: #fff;
+      --gray: #ccc;
+    }
+  -->
 </head>
 <body>
-  <!-- Background Container with full‑screen background image and bottom overlay -->
+  <!-- Full-screen background image with an overlay -->
   <div class="background-container" style="background-image: url('images/skiimage1.webp');">
     <div class="overlay"></div>
   </div>
 
   <header>
     <div class="header-inner">
-      <!-- You may use an image or styled text for the Epic logo -->
-      <h1 class="logo" style="color: #FF7F00;">Epic</h1>
+      <!-- Epic logo styled with your primary orange accent -->
+      <h1 class="logo" style="color: var(--primary-orange);">Epic</h1>
       <h2 class="title">Unlock the mountain</h2>
     </div>
   </header>
@@ -29,32 +39,28 @@
             <label for="email">Email</label>
             <input type="email" id="email" name="email" value="deca@gmail.com" required>
           </div>
-
           <div class="form-group">
             <label for="password">Password</label>
-            <!-- Password container allows for the embedded Face ID icon -->
+            <!-- Container for the password input and embedded Face ID icon -->
             <div class="password-container">
               <input type="password" id="password" name="password" placeholder="Enter your password" required>
-              <!-- Ensure you have an appropriate Face ID icon (adjust the filename as needed) -->
               <img src="images/faceid.png" alt="Face ID Icon" class="faceid-icon">
             </div>
           </div>
-
           <div class="form-links">
             <a href="#" class="forgot-link">Forgot Username?</a>
             <a href="#" class="forgot-link">Forgot Password?</a>
           </div>
-
-          <!-- Initially disabled; CSS and JS will enable it when inputs are valid -->
+          <!-- The SIGN IN button; enabled via CSS/JS when inputs are valid -->
           <button type="submit" id="signInBtn" disabled>SIGN IN</button>
         </form>
 
         <div class="extra-options">
           <a href="#" class="option-link">Sign up</a>
-          <!-- Guest login immediately sends the user to home.html -->
+          <!-- Guest login redirects directly to home.html -->
           <a href="home.html" class="option-link">Continue as Guest</a>
         </div>
-        <!-- Error message container for login feedback -->
+        <!-- Container for error messages (populated via JavaScript) -->
         <p id="errorMsg" aria-live="assertive"></p>
       </div>
     </section>

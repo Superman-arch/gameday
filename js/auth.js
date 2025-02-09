@@ -1,68 +1,44 @@
 // js/auth.js
 
-(function() {
+(function () {
   // ---------------------------
   // Points Persistence Helpers
   // ---------------------------
-  /**
-   * Retrieves the current points from localStorage.
-   * Defaults to 1000 if no value is stored.
-   */
   function getCurrentPoints() {
-    return parseInt(localStorage.getItem('currentPoints'), 10) || 1000;
+    return parseInt(localStorage.getItem("currentPoints"), 10) || 1000;
   }
 
-  /**
-   * Saves the current points to localStorage.
-   * @param {number} points - The points to store.
-   */
   function setCurrentPoints(points) {
-    localStorage.setItem('currentPoints', points);
+    localStorage.setItem("currentPoints", points);
   }
 
-  // Initialize points from storage (or default to 1000)
   let currentPoints = getCurrentPoints();
 
   /* -------------------------------------
      Rewards Functions
   ------------------------------------- */
-
-  /**
-   * Updates the points display (if present) with the current points.
-   */
   function updatePointsDisplay() {
-    const pointsElement = document.getElementById('pointsValue');
+    const pointsElement = document.getElementById("pointsValue");
     if (pointsElement) {
       pointsElement.innerText = currentPoints;
     }
   }
 
-  /**
-   * Adds 100 points to the current total, updates the display,
-   * and notifies the user.
-   */
   function earnPoints() {
     currentPoints += 100;
     setCurrentPoints(currentPoints);
     updatePointsDisplay();
-    // For a production app, consider using an in-page notification instead of alert.
-    alert('You earned 100 points!');
-    console.log('Points increased. Current points:', currentPoints);
+    alert("You earned 100 points!");
+    console.log("Points increased. Current points:", currentPoints);
   }
 
-  /**
-   * Handles reward redemption by reading the cost and reward name from
-   * the button's data attributes; if sufficient points exist,
-   * deducts the cost and confirms the redemption.
-   * @param {Event} event - The click event from a redeem button.
-   */
   function redeemReward(event) {
     const button = event.currentTarget;
-    const cost = parseInt(button.getAttribute('data-cost'), 10);
-    const rewardName = button.getAttribute('data-reward');
+    const cost = parseInt(button.getAttribute("data-cost"), 10);
+    const rewardName = button.getAttribute("data-reward");
 
     if (isNaN(cost)) {
-      console.error('Invalid cost for reward:', rewardName);
+      console.error("Invalid cost for reward:", rewardName);
       return;
     }
 
@@ -70,111 +46,91 @@
       currentPoints -= cost;
       setCurrentPoints(currentPoints);
       updatePointsDisplay();
-      alert('Congratulations! You have redeemed: ' + rewardName);
+      alert("Congratulations! You have redeemed: " + rewardName);
       console.log(`Redeemed "${rewardName}". Points remaining:`, currentPoints);
     } else {
-      alert('Insufficient points to redeem ' + rewardName + '.');
-      console.log('Redemption failed for:', rewardName);
+      alert("Insufficient points to redeem " + rewardName + ".");
+      console.log("Redemption failed for:", rewardName);
     }
   }
 
   /* -------------------------------------
      Login Authentication Functions
   ------------------------------------- */
-
-  /**
-   * Validates login credentials when the form is submitted.
-   * Redirects to home.html if credentials are correct.
-   * @param {Event} event - The form submission event.
-   */
   function validateLogin(event) {
     event.preventDefault();
 
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
-    const errorMsg = document.getElementById('errorMsg');
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const errorMsg = document.getElementById("errorMsg");
 
-    // Sanitize and retrieve input values
     const email = emailInput.value.trim().toLowerCase();
     const password = passwordInput.value;
 
-    // Check against demo credentials (for production, integrate with a secure auth system)
-    if (email === 'deca@gmail.com' && password === 'deca') {
-      // Successful login; redirect to Home (Dashboard) screen
-      window.location.href = 'home.html';
+    if (email === "deca@gmail.com" && password === "deca") {
+      window.location.href = "home.html";
     } else {
-      // Display error message for incorrect credentials
-      errorMsg.textContent = 'Invalid email or password. Please try again.';
-      console.log('Login failed: invalid credentials.');
+      errorMsg.textContent = "Invalid email or password. Please try again.";
+      console.log("Login failed: invalid credentials.");
     }
   }
 
-  /**
-   * Checks if both email and password fields have values,
-   * enabling or disabling the SIGN IN button accordingly.
-   */
   function checkFormInputs() {
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
-    const signInBtn = document.getElementById('signInBtn');
+    const emailInput = document.getElementById("email");
+    const passwordInput = document.getElementById("password");
+    const signInBtn = document.getElementById("signInBtn");
 
     if (emailInput && passwordInput && signInBtn) {
       signInBtn.disabled =
-        emailInput.value.trim() === '' || passwordInput.value.trim() === '';
+        emailInput.value.trim() === "" || passwordInput.value.trim() === "";
     }
   }
 
   /* -------------------------------------
      Additional Interaction Functions
   ------------------------------------- */
-
-  /**
-   * Tracks a day when the "Track Your Day" button is clicked.
-   */
   function trackDay() {
-    alert('Your day has been tracked!');
-    console.log('Track day button clicked.');
+    alert("Your day has been tracked!");
+    console.log("Track day button clicked.");
   }
 
   /* -------------------------------------
      Event Listener Attachments
   ------------------------------------- */
+  document.addEventListener("DOMContentLoaded", function () {
+    // Ensure the points display is updated after the DOM loads.
+    updatePointsDisplay();
 
-  // Login Form (for index.html)
-  const loginForm = document.getElementById('loginForm');
-  if (loginForm) {
-    loginForm.addEventListener('submit', validateLogin);
-
-    // Enable SIGN IN button only when both email and password have input
-    const emailInput = document.getElementById('email');
-    const passwordInput = document.getElementById('password');
-    if (emailInput && passwordInput) {
-      emailInput.addEventListener('input', checkFormInputs);
-      passwordInput.addEventListener('input', checkFormInputs);
+    // Login Form (index.html)
+    const loginForm = document.getElementById("loginForm");
+    if (loginForm) {
+      loginForm.addEventListener("submit", validateLogin);
+      const emailInput = document.getElementById("email");
+      const passwordInput = document.getElementById("password");
+      if (emailInput && passwordInput) {
+        emailInput.addEventListener("input", checkFormInputs);
+        passwordInput.addEventListener("input", checkFormInputs);
+      }
     }
-  }
 
-  // Track Day Button (for home.html)
-  const trackDaysBtn = document.getElementById('trackDaysBtn');
-  if (trackDaysBtn) {
-    trackDaysBtn.addEventListener('click', trackDay);
-  }
+    // Track Day Button (home.html)
+    const trackDaysBtn = document.getElementById("trackDaysBtn");
+    if (trackDaysBtn) {
+      trackDaysBtn.addEventListener("click", trackDay);
+    }
 
-  // Earn Points Button (for rewards.html)
-  const earnPointsBtn = document.getElementById('earnPointsBtn');
-  if (earnPointsBtn) {
-    earnPointsBtn.addEventListener('click', earnPoints);
-    updatePointsDisplay(); // Initialize the points display when the page loads
-  }
+    // Earn Points Button (rewards.html)
+    const earnPointsBtn = document.getElementById("earnPointsBtn");
+    if (earnPointsBtn) {
+      earnPointsBtn.addEventListener("click", earnPoints);
+    }
 
-  // Reward Redemption Buttons (for rewards.html)
-  const redeemButtons = document.querySelectorAll('.redeem-btn');
-  if (redeemButtons.length > 0) {
-    redeemButtons.forEach(button => {
-      button.addEventListener('click', redeemReward);
-    });
-  }
-
-  // Additional event listeners can be added here for other pages or interactions
-
+    // Reward Redemption Buttons (rewards.html)
+    const redeemButtons = document.querySelectorAll(".redeem-btn");
+    if (redeemButtons.length > 0) {
+      redeemButtons.forEach((button) => {
+        button.addEventListener("click", redeemReward);
+      });
+    }
+  });
 })();

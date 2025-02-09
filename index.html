@@ -2,60 +2,64 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="description" content="Login to unlock the mountain with My Epic App.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - My Epic App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Epic App – Login</title>
   <link rel="stylesheet" href="css/style.css">
-  <!-- Google Fonts for a professional look -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body class="login-page">
-  <!-- Full-screen background image -->
-  <div class="login-background"></div>
-  <!-- White overlay at the bottom -->
-  <div class="login-overlay"></div>
-  
-  <!-- Header Section -->
-  <header class="login-header">
-    <div class="epic-logo">EPIC</div>
-    <h1 class="login-title">Unlock the mountain.</h1>
-  </header>
-  
-  <!-- Login Form Container (White Box) -->
-  <main class="login-main">
-    <div class="form-container">
-      <form id="loginForm">
-        <label for="username">Email</label>
-        <input type="email" id="username" value="deca@gmail.com" required>
-        
-        <label for="password">Password</label>
-        <div class="password-field">
-          <input type="password" id="password" placeholder="Password" required>
-          <!-- Placeholder for Face ID icon -->
-          <span class="faceid-icon">
-            <img src="faceid.png" alt="Face ID">
-          </span>
-        </div>
-        
-        <!-- Forgot Username & Password Links -->
-        <div class="forgot-links">
-          <a href="#" class="forgot-link">Forgot Username?</a>
-          <a href="#" class="forgot-link">Forgot Password?</a>
-        </div>
-        
-        <!-- SIGN IN Button -->
-        <button type="submit" id="signInBtn">SIGN IN</button>
-        <p id="errorMsg" class="error-msg"></p>
-      </form>
-      
-      <!-- Sign Up & Guest Login Options -->
-      <div class="extra-options">
-        <p>Don’t have an account? <a href="#" class="extra-link">Sign up</a></p>
-        <p><a href="home.html" class="extra-link">Continue as a guest</a></p>
-      </div>
+<body>
+  <!-- Background Container with full‑screen background image and bottom overlay -->
+  <div class="background-container" style="background-image: url('images/skiimage1.webp');">
+    <div class="overlay"></div>
+  </div>
+
+  <header>
+    <div class="header-inner">
+      <!-- You may use an image or styled text for the Epic logo -->
+      <h1 class="logo" style="color: #FF7F00;">Epic</h1>
+      <h2 class="title">Unlock the mountain</h2>
     </div>
+  </header>
+
+  <main>
+    <section class="login-section">
+      <div class="login-card">
+        <!-- Login Form -->
+        <form id="loginForm" action="#" method="post" novalidate>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="deca@gmail.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <!-- Password container allows for the embedded Face ID icon -->
+            <div class="password-container">
+              <input type="password" id="password" name="password" placeholder="Enter your password" required>
+              <!-- Ensure you have an appropriate Face ID icon (adjust the filename as needed) -->
+              <img src="images/faceid.png" alt="Face ID Icon" class="faceid-icon">
+            </div>
+          </div>
+
+          <div class="form-links">
+            <a href="#" class="forgot-link">Forgot Username?</a>
+            <a href="#" class="forgot-link">Forgot Password?</a>
+          </div>
+
+          <!-- Initially disabled; CSS and JS will enable it when inputs are valid -->
+          <button type="submit" id="signInBtn" disabled>SIGN IN</button>
+        </form>
+
+        <div class="extra-options">
+          <a href="#" class="option-link">Sign up</a>
+          <!-- Guest login immediately sends the user to home.html -->
+          <a href="home.html" class="option-link">Continue as Guest</a>
+        </div>
+        <!-- Error message container for login feedback -->
+        <p id="errorMsg" aria-live="assertive"></p>
+      </div>
+    </section>
   </main>
-  
+
   <script src="js/auth.js"></script>
 </body>
 </html>
